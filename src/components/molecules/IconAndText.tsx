@@ -21,7 +21,7 @@ export function IconAndText({
   const { component: IconComponent, size: IconSize, ...iconProps } = icon ?? {};
 
   const iconElement = IconComponent ? (
-    <IconComponent size={IconSize ?? 20} {...iconProps} />
+    <IconComponent size={IconSize ?? 24} {...iconProps} />
   ) : null;
 
   return (

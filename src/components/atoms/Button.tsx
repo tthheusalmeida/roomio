@@ -67,7 +67,7 @@ export default function Button({
   return (
     <button className={mergeClassNames(componentClasses)} {...rest}>
       <span className={childrenClasses}>{children}</span>
-      {isLoading && <VscLoading size={20} className={loadingClasses} />}
+      {isLoading && <VscLoading size={24} className={loadingClasses} />}
     </button>
   );
 }

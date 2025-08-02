@@ -2,24 +2,25 @@
 
 import Title from "@/components/atoms/Title";
 import Button from "@/components/atoms/Button";
-import { IconAndText } from "@/components/molecules/IconAndText";
-import { useUser } from "@/contexts/UserContext";
 import { ImExit } from "react-icons/im";
+import { useUser } from "@/contexts/UserContext";
 
 export default function SettingsTemplate() {
   const { signOut } = useUser();
 
   return (
-    <div className="w-full flex flex-col min-h-dvh">
-      <Title>Settings</Title>
+    <div className="w-full flex flex-col">
+      <div className="flex w-full justify-between items-center">
+        <Title>Settings</Title>
 
-      <Button variant="secondary" onClick={() => signOut()}>
-        <IconAndText
-          text="Exit"
-          iconOnStart
-          icon={{ component: ImExit, size: 21 }}
-        />
-      </Button>
+        <Button
+          variant="secondary"
+          className="w-10 h-10"
+          onClick={() => signOut()}
+        >
+          <ImExit size={24} />
+        </Button>
+      </div>
     </div>
   );
 }
