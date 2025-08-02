@@ -1,11 +1,8 @@
+import "../globals.css";
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
-import "../globals.css";
 import { UserProvider } from "@/contexts/UserContext";
-
-import Container from "@/components/atoms/Container";
-import Header from "@/components/organisms/Header";
-import Footer from "@/components/organisms/Footer";
+import PageTemplate from "@/templates/PageTemplate";
 
 const poppinsSans = Poppins({
   subsets: ["latin"],
@@ -25,7 +22,7 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-export default function RootLayout({
+export default function MainLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -34,9 +31,7 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className={`${poppinsSans.variable} antialiased`}>
         <UserProvider>
-          <Header />
-          <Container className="pb-4">{children}</Container>
-          <Footer />
+          <PageTemplate>{children}</PageTemplate>
         </UserProvider>
       </body>
     </html>

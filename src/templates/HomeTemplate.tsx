@@ -1,5 +1,9 @@
-import ProtectedPage from "./ProtectedPage";
+import Title from "@/components/atoms/Title";
 
 export default function HomeTemplate() {
-  return <ProtectedPage>a</ProtectedPage>;
+  return (
+    <div className="w-full flex flex-col min-h-dvh">
+      <Title>Home</Title>
+    </div>
+  );
 }

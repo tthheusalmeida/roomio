@@ -2,9 +2,6 @@
 
 import Button from "../atoms/Button";
 import { mergeClassNames } from "@/utils/classNames";
-import { useUser } from "@/contexts/UserContext";
-import { useState } from "react";
-
 import { usePathname, useRouter } from "next/navigation";
 import { PiRankingFill, PiRankingLight } from "react-icons/pi";
 import {
@@ -16,9 +13,7 @@ import {
 
 export default function Footer() {
   const pathname = usePathname();
-  const route = useRouter();
-  const { user } = useUser();
-  const [isMoving, setIsMoving] = useState(false);
+  const router = useRouter();
 
   const options = [
     {
@@ -48,10 +43,10 @@ export default function Footer() {
   ];
 
   const onClickButton = (path: string) => {
-    route.push(path);
+    if (path !== pathname) {
+      router.push(path);
+    }
   };
-
-  const activeIndex = options.findIndex((option) => pathname === option.router);
 
   return (
     <div
@@ -61,16 +56,6 @@ export default function Footer() {
         "text-white text-sm bg-violet-950 z-40"
       )}
     >
-      <div
-        className={mergeClassNames(
-          "w-12 h-12 bg-violet-500 rounded-full absolute top-4 left-4 transition-transform duration-300 ease-out",
-          isMoving ? "animate-pulseScale" : "scale-100"
-        )}
-        style={{
-          transform: `translateX(${activeIndex * 80}px)`,
-        }}
-      />
-
       {options.map((option, index) => {
         const isActive = pathname === option.router;
 
@@ -80,7 +65,8 @@ export default function Footer() {
             onClick={() => onClickButton(option.router)}
             key={index}
             className={mergeClassNames(
-              "w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300 bg-transparent"
+              "w-12 h-12 flex items-center justify-center rounded-full transition-all ease-in duration-300",
+              isActive ? "bg-violet-500" : "bg-transparent"
             )}
           >
             {isActive ? option.icon.active : option.icon.inactive}

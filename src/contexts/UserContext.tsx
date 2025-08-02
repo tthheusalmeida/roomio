@@ -1,4 +1,5 @@
 "use client";
+
 import { getFirebaseAuth } from "@/services/auth";
 import { User as FirebaseUser, UserInfo } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
@@ -51,25 +52,6 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoadingUser, setIsLoadingUser] = useState(true);
 
-  // 1. Restaurar usuário do localStorage ao montar
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-    setIsLoadingUser(false);
-  }, []);
-
-  // 2. Sempre que o usuário mudar, salvar ou remover do localStorage
-  useEffect(() => {
-    if (user) {
-      localStorage.setItem("user", JSON.stringify(user));
-    } else {
-      localStorage.removeItem("user");
-    }
-  }, [user]);
-
-  // 3. Monitorar o estado do Firebase auth para atualizar o usuário real
   useEffect(() => {
     const unsubscribe = auth.onIdTokenChanged(
       async (userData: FirebaseUser | null) => {
@@ -92,7 +74,8 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
 
   const signOut = () => {
     setUser(null);
-    auth.signOut();
+    setIsLoadingUser(true); // <- Isso garante que telas aguardem novo estado
+    auth.signOut().finally(() => setIsLoadingUser(false));
   };
 
   return (

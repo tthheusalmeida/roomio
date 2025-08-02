@@ -8,7 +8,7 @@ export default function Container({
   className?: string;
 }) {
   return (
-    <div className={mergeClassNames(`container mx-auto px-4`, className)}>
+    <div className={mergeClassNames(`w-full mx-auto px-4`, className)}>
       {children}
     </div>
   );

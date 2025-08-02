@@ -39,7 +39,7 @@ export default function LoginTemplate() {
 
   useEffect(() => {
     if (!isLoadingUser && user) {
-      router.replace("/"); // Redireciona apenas se já estiver logado
+      router.push("/");
     }
   }, [user, isLoadingUser, router]);
 

@@ -7,6 +7,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Login() {
+export default function Settings() {
   return <SettingsTemplate />;
 }

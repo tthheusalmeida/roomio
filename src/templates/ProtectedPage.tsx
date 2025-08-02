@@ -3,11 +3,14 @@
 import { useUser } from "@/contexts/UserContext";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { mergeClassNames } from "@/utils/classNames";
 
 export default function ProtectedPage({
   children,
+  className,
 }: {
   children: React.ReactNode;
+  className?: string;
 }) {
   const { user, isLoadingUser } = useUser();
   const router = useRouter();
@@ -22,5 +25,5 @@ export default function ProtectedPage({
 
   if (!user) return null;
 
-  return <>{children}</>;
+  return <div className={mergeClassNames(className)}>{children}</div>;
 }
