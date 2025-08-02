@@ -15,7 +15,7 @@ export default function SettingsTemplate() {
 
       <Button variant="secondary" onClick={() => signOut()}>
         <IconAndText
-          text="Sair"
+          text="Exit"
           iconOnStart
           icon={{ component: ImExit, size: 21 }}
         />

@@ -5,17 +5,33 @@ import { useUser } from "@/contexts/UserContext";
 import { getFirstName } from "@/utils/text";
 import { useEffect, useState } from "react";
 import { SiSecurityscorecard } from "react-icons/si";
+import Image from "next/image";
 
 function renderHeader(name: string, points: number) {
-  return (
-    name &&
-    points && (
-      <>
-        <span>{name && `Olá, ${name}`}</span>
+  const { user } = useUser();
 
-        <span className="flex items-center gap-2">
-          <SiSecurityscorecard size={16} className="inline" /> {points} pts
-        </span>
+  return (
+    name && (
+      <>
+        {name && user && (
+          <div className="flex justify-between w-full">
+            <div className="flex gap-2 items-center">
+              <Image
+                src={user.photoURL as string}
+                alt={`${user.name} avatar`}
+                width={28}
+                height={28}
+                className="rounded-full relative"
+              />
+              <span className="text-lg">{name}</span>
+            </div>
+
+            <span className="flex items-center gap-2">
+              <span className="text-lg">{points}</span>
+              <SiSecurityscorecard size={18} className="inline" />
+            </span>
+          </div>
+        )}
       </>
     )
   );
