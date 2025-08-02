@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Mobile online games",
     start_url: "/",
     display: "standalone",
-    background_color: "#FF686B",
-    theme_color: "#FFFFFF",
+    background_color: "#2f0d68",
+    theme_color: "#2f0d68",
     icons: [
       // {
       //   src: "/icon-192x192.png",
