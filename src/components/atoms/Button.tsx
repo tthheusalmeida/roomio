@@ -15,9 +15,9 @@ export interface ButtonProps
 
 const buttonVariants = {
   primary:
-    "bg-violet-950 text-var(--color-foreground)hover:enabled:bg-violet-600 disabled:bg-violet-200 disabled:text-violet-50",
+    "bg-violet-950 text-var(--color-foreground) hover:enabled:bg-violet-800 disabled:bg-violet-200 disabled:text-violet-50",
   secondary:
-    "bg-var(--color-foreground)text-violet-800 hover:enabled:bg-violet-100 disabled:bg-grey-200 disabled:text-violet-100",
+    "bg-[var(--color-foreground)] text-violet-800 hover:enabled:bg-violet-200 disabled:bg-grey-200 disabled:text-violet-100",
 };
 
 const isLodingVariants = {

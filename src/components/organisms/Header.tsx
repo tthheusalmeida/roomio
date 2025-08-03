@@ -5,7 +5,7 @@ import { useUser } from "@/contexts/UserContext";
 import { getFirstName } from "@/utils/text";
 import { useEffect, useState } from "react";
 import { SiSecurityscorecard } from "react-icons/si";
-import Image from "next/image";
+import Avatar from "../atoms/Avatar";
 
 function renderHeader(name: string, points: number) {
   const { user } = useUser();
@@ -16,13 +16,12 @@ function renderHeader(name: string, points: number) {
         {name && user && (
           <div className="flex justify-between w-full">
             <div className="flex gap-2 items-center">
-              <Image
+              <Avatar
                 src={user.photoURL as string}
-                alt={`${user.name} avatar`}
-                width={28}
-                height={28}
-                className="rounded-full relative"
+                name={user.name as string}
+                size="small"
               />
+
               <span className="text-lg">{name}</span>
             </div>
 
