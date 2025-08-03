@@ -1,21 +1,30 @@
 "use client";
 
-import Subtitle from "@/components/atoms/Subtitle";
-import Button from "@/components/atoms/Button";
-import { ImExit } from "react-icons/im";
 import { useUser } from "@/contexts/UserContext";
-import { IoIosArrowForward } from "react-icons/io";
+import { mergeClassNames } from "@/utils/classNames";
+
 import Avatar from "@/components/atoms/Avatar";
-import InputLabel from "@/components/atoms/InputLabel";
+import Subtitle from "@/components/atoms/Subtitle";
 import Loading from "@/components/atoms/Loading";
 import SettingsButton from "@/components/atoms/SettingsButton";
 import AvatarLabel from "@/components/atoms/AvatarLabel";
-import { mergeClassNames } from "@/utils/classNames";
+import EditUserModal from "@/components/organisms/EditUserModal";
+import { ImExit } from "react-icons/im";
+import { MdEdit } from "react-icons/md";
+
+import { useState } from "react";
 
 export default function SettingsTemplate() {
   const { user, signOut } = useUser();
 
-  if (!user) return <Loading />;
+  if (!user)
+    return (
+      <div className="flex flex-col w-full h-full items-center justify-center">
+        <Loading />
+      </div>
+    );
+
+  const [isOpenEditModal, setIsOpenEditModal] = useState<boolean>(false);
 
   const userData = [
     {
@@ -38,6 +47,11 @@ export default function SettingsTemplate() {
 
   const actions = [
     {
+      label: "Edit",
+      icon: MdEdit,
+      onCLick: () => setIsOpenEditModal(true),
+    },
+    {
       label: "Log out",
       icon: ImExit,
       onCLick: signOut,
@@ -45,42 +59,49 @@ export default function SettingsTemplate() {
   ];
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <Subtitle className="text-violet-100">Settings</Subtitle>
+    <>
+      <div className="w-full flex flex-col items-center">
+        <Subtitle className="text-violet-100">Settings</Subtitle>
 
-      <div className="flex gap-2">
-        <Avatar
-          src={user!.photoURL as string}
-          name={user!.name as string}
-          size="medium"
-          className="border-[var(--color-foreground)] border-2"
-        />
-      </div>
-
-      <div className="mt-4 flex flex-col items-center gap-1 self-baseline w-full">
-        {userData.map(({ label, data, showLabel, className }, index) => (
-          <AvatarLabel
-            key={index}
-            label={label}
-            data={data as string}
-            showLabel={showLabel as boolean}
-            className={mergeClassNames(
-              userData.length - 1 === index ? "last:pt-4" : ""
-            )}
+        <div className="flex gap-2">
+          <Avatar
+            src={user!.photoURL as string}
+            name={user!.name as string}
+            size="medium"
+            className="border-[var(--color-foreground)] border-2"
           />
-        ))}
+        </div>
+
+        <div className="mt-4 flex flex-col items-center gap-1 self-baseline w-full">
+          {userData.map(({ label, data, showLabel, className }, index) => (
+            <AvatarLabel
+              key={index}
+              label={label}
+              data={data as string}
+              showLabel={showLabel as boolean}
+              className={mergeClassNames(
+                userData.length - 1 === index ? "last:pt-4" : ""
+              )}
+            />
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-col gap-4">
+          {actions.map(({ label, icon, onCLick }, index) => (
+            <SettingsButton
+              key={index}
+              onClick={onCLick}
+              label={label}
+              icon={icon}
+            />
+          ))}
+        </div>
       </div>
 
-      <div className="mt-8 flex flex-col gap-4">
-        {actions.map(({ label, icon, onCLick }, index) => (
-          <SettingsButton
-            key={index}
-            onClick={onCLick}
-            label={label}
-            icon={icon}
-          />
-        ))}
-      </div>
-    </div>
+      <EditUserModal
+        isOpen={isOpenEditModal}
+        onClose={() => setIsOpenEditModal(false)}
+      />
+    </>
   );
 }

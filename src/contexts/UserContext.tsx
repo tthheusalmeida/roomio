@@ -3,6 +3,7 @@
 import { getFirebaseAuth } from "@/services/auth";
 import { User as FirebaseUser, UserInfo } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
+import { createUser, getUser, UserDocument } from "@/services/user";
 
 interface UserContextType {
   user: User | null;
@@ -47,6 +48,28 @@ export const normalizeUser = (user: NormalizeUserProps): User | null => {
   };
 };
 
+async function mergeUser(userAuth: FirebaseUser) {
+  const accessToken = await userAuth.getIdToken();
+  const normalizedUser = normalizeUser({ ...userAuth, accessToken });
+
+  if (normalizedUser) {
+    const isThereUser = await getUser(normalizedUser.uid);
+
+    if (!isThereUser) {
+      const userDoc: UserDocument = {
+        id: normalizedUser.uid,
+        name: normalizedUser.name,
+        createdAt: new Date().getTime(),
+      };
+      await createUser(normalizedUser.uid, userDoc);
+    }
+
+    return normalizedUser;
+  }
+
+  return null;
+}
+
 export function UserProvider({ children }: { children: React.ReactNode }) {
   const auth = getFirebaseAuth();
   const [user, setUser] = useState<User | null>(null);
@@ -54,15 +77,16 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const unsubscribe = auth.onIdTokenChanged(
-      async (userData: FirebaseUser | null) => {
-        if (!userData) {
+      async (userAuth: FirebaseUser | null) => {
+        if (!userAuth) {
           setUser(null);
           setIsLoadingUser(false);
           return;
         }
 
-        const accessToken = await userData.getIdToken();
-        setUser(normalizeUser({ ...userData, accessToken }));
+        const user = await mergeUser(userAuth);
+        setUser(user);
+
         setIsLoadingUser(false);
       }
     );

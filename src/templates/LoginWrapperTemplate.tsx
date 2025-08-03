@@ -21,7 +21,7 @@ export default function LoginWrapperTemplate({
           "h-fit min-h-48",
           "flex flex-col gap-4 justify-center",
           "w-dvw sm:w-96 rounded-b-none rounded-t-lg sm:rounded-lg ",
-          "bg-var(--color-foreground) pb-[--safe-area-bottom]"
+          "bg-[var(--color-foreground)] pb-[--safe-area-bottom]"
         )}
       >
         {content}

@@ -50,7 +50,7 @@ export default function Header() {
   if (isLoadingUser) return null;
 
   return (
-    <Container className="flex flex-col pt-8 pb-4 text-var(--color-foreground)text-sm bg-violet-950">
+    <Container className="flex flex-col pt-8 pb-4 text-[var(--color-foreground)] text-sm bg-violet-950">
       <div className="flex flex-row justify-between font-semibold">
         {renderHeader(name, 1024)}
       </div>

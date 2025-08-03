@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/Button";
-import Modal from "@/components/atoms/Modal";
+import Modal from "@/components/molecules/Modal";
 
 interface ConfirmActionProps {
   isOpen: boolean;

@@ -34,7 +34,7 @@ export default function Modal({
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-end justify-center transition-opacity duration-200 bg-black/50 ${
+      className={`fixed inset-0 z-50 flex items-end justify-center transition-opacity duration-200 bg-[var(--color-background)]/50 ${
         isOpen
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none"
@@ -42,7 +42,7 @@ export default function Modal({
     >
       <div
         className={mergeClassNames(`
-          relative w-full max-h-full bg-var(--color-foreground)shadow-xl overflow-y-auto
+          relative w-full max-h-full bg-[var(--color-foreground)] shadow-xl overflow-y-auto
           transition-all duration-600 ease-in-out
           transform safe-padding-bottom
           ${isOpen ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}
