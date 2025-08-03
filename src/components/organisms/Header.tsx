@@ -2,7 +2,6 @@
 
 import Container from "@/components/atoms/Container";
 import { useUser } from "@/contexts/UserContext";
-import { getFirstName } from "@/utils/text";
 import { useEffect, useState } from "react";
 import { SiSecurityscorecard } from "react-icons/si";
 import Avatar from "../atoms/Avatar";
@@ -43,7 +42,7 @@ export default function Header() {
 
   useEffect(() => {
     if (user) {
-      setName(getFirstName(user!.name as string));
+      setName(user!.name as string);
     }
   }, [user?.name]);
 

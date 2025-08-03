@@ -18,6 +18,7 @@ interface User {
   email: string | null;
   photoURL: string | null;
   accessToken: string | null;
+  createdAt: number | null;
 }
 
 const UserContext = createContext<UserContextType>({
@@ -45,6 +46,7 @@ export const normalizeUser = (user: NormalizeUserProps): User | null => {
     email: user.email,
     photoURL: user.photoURL,
     accessToken: user.accessToken ?? null,
+    createdAt: null,
   };
 };
 

@@ -13,6 +13,7 @@ import { ImExit } from "react-icons/im";
 import { MdEdit } from "react-icons/md";
 
 import { useState } from "react";
+import { timestampToDate } from "@/utils/date";
 
 export default function SettingsTemplate() {
   const { user, signOut } = useUser();
@@ -26,12 +27,13 @@ export default function SettingsTemplate() {
 
   const [isOpenEditModal, setIsOpenEditModal] = useState<boolean>(false);
 
+  console.log(user);
+
   const userData = [
     {
       label: "Name",
       data: user.name,
       showLabel: false,
-      className: "font-bold font-lg",
     },
     {
       label: "Email",
@@ -41,6 +43,12 @@ export default function SettingsTemplate() {
     {
       label: "ID",
       data: user.uid,
+      showLabel: true,
+      className: "pt-4",
+    },
+    {
+      label: "CreatedAt",
+      data: timestampToDate(user.createdAt as number),
       showLabel: true,
     },
   ];
@@ -76,11 +84,12 @@ export default function SettingsTemplate() {
           {userData.map(({ label, data, showLabel, className }, index) => (
             <AvatarLabel
               key={index}
-              label={label}
+              label={`${label}`}
               data={data as string}
               showLabel={showLabel as boolean}
               className={mergeClassNames(
-                userData.length - 1 === index ? "last:pt-4" : ""
+                className,
+                showLabel ? "self-start" : "self-center"
               )}
             />
           ))}
