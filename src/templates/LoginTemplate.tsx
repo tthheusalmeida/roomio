@@ -2,6 +2,7 @@
 
 import GoogleButton from "@/components/atoms/GoogleButton";
 import SplashScreen from "@/components/atoms/SplashScreen";
+import Title from "@/components/atoms/Title";
 import { normalizeUser, useUser } from "@/contexts/UserContext";
 import { AuthUser, googleSignIn } from "@/services/auth";
 import LoginWrapperTemplate from "@/templates/LoginWrapperTemplate";
@@ -51,11 +52,16 @@ export default function LoginTemplate() {
     <LoginWrapperTemplate
       content={
         <>
-          <span className="text-xs text-center text-gray-500 mt-4">
-            escolha uma opção de login
+          <Title className="mb-2 text-center text-violet-100 font-pixelify">
+            Room.IO
+          </Title>
+          <span className="text-center text-sm text-violet-400 font-semibold pb-16">
+            Explore our multiplayer online games platform
           </span>
 
-          <GoogleButton onClick={handleLoginGoogle} isFull={true} />
+          <div className="flex flex-col items-center p-4 mb-16">
+            <GoogleButton onClick={handleLoginGoogle} isFull={true} />
+          </div>
         </>
       }
     ></LoginWrapperTemplate>

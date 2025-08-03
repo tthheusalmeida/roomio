@@ -5,11 +5,11 @@ export default function GoogleButton(props: ButtonProps) {
   return (
     <Button
       shadow
-      className="bg-violet-950 text-white hover:enabled:opacity-80"
+      className="bg-[var(--color-foreground)] text-violet-950 hover:enabled:opacity-80"
       {...props}
     >
       <FcGoogle size={24} />
-      <span>Entrar com o Google</span>
+      <span>Login with Google</span>
     </Button>
   );
 }
