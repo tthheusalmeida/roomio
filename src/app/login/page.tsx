@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   other: {
-    "theme-color": "#ff6467",
+    "theme-color": "#2f0d68",
   },
 };
 
