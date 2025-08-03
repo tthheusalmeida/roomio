@@ -45,7 +45,7 @@ export default function Header() {
     if (user) {
       setName(getFirstName(user!.name as string));
     }
-  }, []);
+  }, [user?.name]);
 
   if (isLoadingUser) return null;
 

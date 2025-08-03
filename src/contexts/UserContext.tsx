@@ -53,9 +53,9 @@ async function mergeUser(userAuth: FirebaseUser) {
   const normalizedUser = normalizeUser({ ...userAuth, accessToken });
 
   if (normalizedUser) {
-    const isThereUser = await getUser(normalizedUser.uid);
+    const databaseUser = await getUser(normalizedUser.uid);
 
-    if (!isThereUser) {
+    if (!databaseUser) {
       const userDoc: UserDocument = {
         id: normalizedUser.uid,
         name: normalizedUser.name,
@@ -64,7 +64,10 @@ async function mergeUser(userAuth: FirebaseUser) {
       await createUser(normalizedUser.uid, userDoc);
     }
 
-    return normalizedUser;
+    return {
+      ...normalizedUser,
+      ...databaseUser,
+    };
   }
 
   return null;
