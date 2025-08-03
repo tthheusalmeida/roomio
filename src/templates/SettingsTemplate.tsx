@@ -45,7 +45,7 @@ export default function SettingsTemplate() {
       className: "pt-4",
     },
     {
-      label: "CreatedAt",
+      label: "Created at",
       data: timestampToDate(user.createdAt as number),
       showLabel: true,
     },
