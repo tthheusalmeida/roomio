@@ -38,7 +38,7 @@ export default function Menu({ className, items, renderTrigger }: MenuProps) {
       {renderTrigger({ onClick: toggleMenu })}
 
       {open && (
-        <div className="absolute right-0 w-48 bg-white border border-gray-200 shadow-lg rounded-md rounded-tr-none z-10 max-w-36">
+        <div className="absolute right-0 w-48 bg-var(--color-foreground)border border-gray-200 shadow-lg rounded-md rounded-tr-none z-10 max-w-36">
           <MenuList
             items={items}
             onItemClick={(item) => {
