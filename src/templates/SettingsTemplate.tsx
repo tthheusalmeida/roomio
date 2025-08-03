@@ -27,8 +27,6 @@ export default function SettingsTemplate() {
 
   const [isOpenEditModal, setIsOpenEditModal] = useState<boolean>(false);
 
-  console.log(user);
-
   const userData = [
     {
       label: "Name",
