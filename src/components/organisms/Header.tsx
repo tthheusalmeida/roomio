@@ -22,11 +22,11 @@ function renderHeader(name: string, points: number) {
                 size="small"
               />
 
-              <span className="text-lg">{name}</span>
+              <span className="text-lg text-violet-100">{name}</span>
             </div>
 
             <span className="flex items-center gap-2">
-              <span className="text-lg">{points}</span>
+              <span className="text-lg text-violet-100">{points}</span>
               <SiSecurityscorecard size={24} className="inline" />
             </span>
           </div>
