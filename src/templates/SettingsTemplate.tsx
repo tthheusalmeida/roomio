@@ -5,7 +5,6 @@ import { mergeClassNames } from "@/utils/classNames";
 
 import Avatar from "@/components/atoms/Avatar";
 import Subtitle from "@/components/atoms/Subtitle";
-import Loading from "@/components/atoms/Loading";
 import SettingsButton from "@/components/atoms/SettingsButton";
 import AvatarLabel from "@/components/atoms/AvatarLabel";
 import EditUserModal from "@/components/organisms/EditUserModal";
@@ -14,16 +13,12 @@ import { MdEdit } from "react-icons/md";
 
 import { useState } from "react";
 import { timestampToDate } from "@/utils/date";
+import LoadingComponent from "@/components/molecules/LoadingComponent";
 
 export default function SettingsTemplate() {
   const { user, signOut } = useUser();
 
-  if (!user)
-    return (
-      <div className="flex flex-col w-full h-full items-center justify-center">
-        <Loading />
-      </div>
-    );
+  if (!user) return <LoadingComponent />;
 
   const [isOpenEditModal, setIsOpenEditModal] = useState<boolean>(false);
 

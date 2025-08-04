@@ -1,15 +1,23 @@
+"use client";
+
 import Subtitle from "@/components/atoms/Subtitle";
+import LoadingComponent from "@/components/molecules/LoadingComponent";
 import GameCard from "@/components/organisms/GameCard";
+import { useGames } from "@/hooks/games";
+import { Game } from "@/services/games";
 import { mergeClassNames } from "@/utils/classNames";
+import { useEffect, useState } from "react";
 
 export default function HomeTemplate() {
-  const games = [
-    {
-      title: "Tic-Tac-Toe",
-      image: "/games/tictactoe.webp",
-      online: 10,
-    },
-  ];
+  const { data, isLoading } = useGames();
+  const [games, setGames] = useState<Game[]>([]);
+
+  useEffect(() => {
+    if (data) {
+      const { data: _games } = data;
+      setGames(_games);
+    }
+  }, [isLoading]);
 
   return (
     <div className="w-full flex flex-col">
@@ -21,9 +29,18 @@ export default function HomeTemplate() {
           "sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
         )}
       >
-        {games.map(({ title, image, online }, index) => (
-          <GameCard key={index} title={title} image={image} online={online} />
-        ))}
+        {isLoading ? (
+          <LoadingComponent />
+        ) : (
+          games?.map(({ name, slug, online }, index) => (
+            <GameCard
+              key={index}
+              title={name}
+              image={`/games/${slug}.webp`}
+              online={online}
+            />
+          ))
+        )}
       </div>
     </div>
   );
