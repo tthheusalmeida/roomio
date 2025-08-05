@@ -1,19 +1,32 @@
 import { mergeClassNames } from "@/utils/classNames";
+import { useRouter } from "next/navigation";
+
 import Button from "../atoms/Button";
 
 interface GameCardProps {
   title: string;
   image: string;
   online?: number;
+  slug: string;
 }
 
-export default function GameCard({ title, image, online = 0 }: GameCardProps) {
+export default function GameCard({
+  title,
+  image,
+  online = 0,
+  slug,
+}: GameCardProps) {
+  const router = useRouter();
+  const onClickPlay = (path: string) => {
+    router.push(`/game/${path}`);
+  };
+
   return (
     <div
       className={mergeClassNames(
         "h-full flex flex-col justify-between",
         "bg-[var(--color-foreground)] border border-violet-200 rounded-lg shadow-sm",
-        "bg-violet-950 border-violet-500"
+        "bg-violet-900 border-violet-500"
       )}
     >
       <div className="flex flex-col justify-between">
@@ -33,7 +46,9 @@ export default function GameCard({ title, image, online = 0 }: GameCardProps) {
           {online} playing
         </span>
 
-        <Button variant="secondary">Play</Button>
+        <Button variant="secondary" onClick={() => onClickPlay(slug)}>
+          Play
+        </Button>
       </div>
     </div>
   );

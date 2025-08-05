@@ -53,7 +53,7 @@ export default function Footer() {
       className={mergeClassNames(
         "fixed left-1/2 -translate-x-1/2 bottom-4",
         "flex gap-8 p-4 rounded-full",
-        "text-white text-sm bg-violet-950 z-40"
+        "text-white text-sm bg-violet-900 z-40"
       )}
     >
       {options.map((option, index) => {

@@ -1,11 +1,12 @@
 "use client";
 
-import Container from "@/components/atoms/Container";
 import { useUser } from "@/contexts/UserContext";
 import { mergeClassNames } from "@/utils/classNames";
 import { useRouter } from "next/navigation";
+
 import Header from "@/components/organisms/Header";
 import Footer from "@/components/organisms/Footer";
+import Container from "@/components/atoms/Container";
 
 import { useEffect } from "react";
 

@@ -1,7 +1,6 @@
 "use client";
 
 import Subtitle from "@/components/atoms/Subtitle";
-import LoadingComponent from "@/components/molecules/LoadingComponent";
 import GameCard from "@/components/organisms/GameCard";
 import { useGames } from "@/hooks/games";
 import { Game } from "@/services/games";
@@ -9,7 +8,7 @@ import { mergeClassNames } from "@/utils/classNames";
 import { useEffect, useState } from "react";
 
 export default function HomeTemplate() {
-  const { data, isLoading } = useGames();
+  const { data, isValidating, isLoading } = useGames();
   const [games, setGames] = useState<Game[]>([]);
 
   useEffect(() => {
@@ -30,12 +29,15 @@ export default function HomeTemplate() {
         )}
       >
         {isLoading ? (
-          <LoadingComponent />
+          <div className="w-full h-8/12">
+            <span className="animate-pulse">Loading...</span>
+          </div>
         ) : (
           games?.map(({ name, slug, online }, index) => (
             <GameCard
               key={index}
               title={name}
+              slug={slug}
               image={`/games/${slug}.webp`}
               online={online}
             />

@@ -1,24 +1,24 @@
 "use client";
 
 import { useUser } from "@/contexts/UserContext";
+import { useState } from "react";
 import { mergeClassNames } from "@/utils/classNames";
+import { timestampToDate } from "@/utils/date";
 
 import Avatar from "@/components/atoms/Avatar";
 import Subtitle from "@/components/atoms/Subtitle";
 import SettingsButton from "@/components/atoms/SettingsButton";
 import AvatarLabel from "@/components/atoms/AvatarLabel";
 import EditUserModal from "@/components/organisms/EditUserModal";
+import SplashScreen from "@/components/atoms/SplashScreen";
+
 import { ImExit } from "react-icons/im";
 import { MdEdit } from "react-icons/md";
 
-import { useState } from "react";
-import { timestampToDate } from "@/utils/date";
-import LoadingComponent from "@/components/molecules/LoadingComponent";
-
 export default function SettingsTemplate() {
-  const { user, signOut } = useUser();
+  const { user, isLoadingUser, signOut } = useUser();
 
-  if (!user) return <LoadingComponent />;
+  if (!user || isLoadingUser) return <SplashScreen />;
 
   const [isOpenEditModal, setIsOpenEditModal] = useState<boolean>(false);
 
