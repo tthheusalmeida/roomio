@@ -215,58 +215,55 @@ export default function TicTacToeGame({ roomId }: Props) {
             </div>
           </div>
         ) : (
-          <div className="p-6 max-w-md mx-auto flex flex-col gap-4">
-            <Button
-              className="mt-8 w-8/12 self-center"
-              variant="secondary"
-              onClick={() => route.push("/")}
-            >
-              Back to Menu
-            </Button>
-            <h1 className="text-3xl font-bold text-center">
-              Tic Tac Toe Online
-            </h1>
-            <p className="text-center text-lg">
-              You play as "<span className="capitalize">{symbol}</span>"
-            </p>
-            <p className="text-center text-sm">{status}</p>
+          <div className="w-full">
+            <Header />
 
-            <div className="grid grid-cols-3 gap-2 place-items-center aspect-square bg-gray-700 rounded-md shadow-md p-2">
-              {board.map((row, x) =>
-                row.map((cell, y) => (
-                  <button
-                    key={`${x}-${y}`}
-                    onClick={() => handleMove(x, y)}
-                    disabled={!!cell || !isMyTurn}
-                    className={mergeClassNames(
-                      "bg-gray-600",
-                      "text-2xl  font-bold",
-                      "w-full max-w-16 h-full max-h-16 flex items-center justify-center",
-                      "rounded-md",
-                      "transition-colors duration-200",
-                      "hover:bg-gray-500 hover:disabled:bg-gray-600",
-                      "disabled:opacity-90",
-                      cellIsX(cell) ? "text-red-600" : "text-blue-600"
-                    )}
-                  >
-                    {cell}
-                  </button>
-                ))
-              )}
-            </div>
+            <div className="p-4">
+              <h1 className="text-3xl font-bold text-center">
+                Tic Tac Toe Online
+              </h1>
+              <p className="text-center text-lg">
+                You play as "<span className="capitalize">{symbol}</span>"
+              </p>
+              <p className="text-center text-sm">{status}</p>
 
-            <div className="bg-gray-50 rounded-md shadow-md p-4">
-              <h3 className="font-semibold text-lg mb-2 text-gray-900">
-                History:
-              </h3>
-              <ul className="list-disc list-inside space-y-1 text-sm text-gray-900">
-                {history.map((move, index) => (
-                  <li key={index}>
-                    Player {move.player.toUpperCase()} played at [{move.x + 1},{" "}
-                    {move.y + 1}]
-                  </li>
-                ))}
-              </ul>
+              <div className="grid grid-cols-3 gap-2 place-items-center aspect-square bg-gray-700 rounded-md shadow-md p-2">
+                {board.map((row, x) =>
+                  row.map((cell, y) => (
+                    <button
+                      key={`${x}-${y}`}
+                      onClick={() => handleMove(x, y)}
+                      disabled={!!cell || !isMyTurn}
+                      className={mergeClassNames(
+                        "bg-gray-600",
+                        "text-2xl  font-bold",
+                        "w-full max-w-16 h-full max-h-16 flex items-center justify-center",
+                        "rounded-md",
+                        "transition-colors duration-200",
+                        "hover:bg-gray-500 hover:disabled:bg-gray-600",
+                        "disabled:opacity-90",
+                        cellIsX(cell) ? "text-red-600" : "text-blue-600"
+                      )}
+                    >
+                      {cell}
+                    </button>
+                  ))
+                )}
+              </div>
+
+              <div className="bg-gray-50 rounded-md shadow-md p-4">
+                <h3 className="font-semibold text-lg mb-2 text-gray-900">
+                  History:
+                </h3>
+                <ul className="list-disc list-inside space-y-1 text-sm text-gray-900">
+                  {history.map((move, index) => (
+                    <li key={index}>
+                      Player {move.player.toUpperCase()} played at [{move.x + 1}
+                      , {move.y + 1}]
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         )}
