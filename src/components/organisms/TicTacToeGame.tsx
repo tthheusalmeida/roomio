@@ -1,7 +1,6 @@
 "use client";
 
 import { useUser } from "@/contexts/UserContext";
-import { mergeClassNames } from "@/utils/classNames";
 import { Suspense, useEffect, useState } from "react";
 import { io, Socket } from "socket.io-client";
 import Button from "../atoms/Button";
@@ -10,24 +9,18 @@ import { useRouter } from "next/navigation";
 import CountdownTimer from "../organisms/CountdownTimer";
 import Header from "./Header";
 import Room from "../atoms/Room";
-import Title from "../atoms/Title";
 import Subtitle from "../atoms/Subtitle";
-import InputLabel from "../atoms/InputLabel";
 import CountupPlayers from "../atoms/CountupPlayers";
 import ConnectedPlayers from "../molecules/ConectedPlayers";
 import RoomAndPassword from "./RoomAndPassword";
+import CanvasTicTacToeBoard, { Cell } from "../organisms/CanvasTicTacToeBoard";
+import PlayHistory, { Move } from "../molecules/PlayHistory";
+import PlayerBoxes from "../organisms/PlayerBoxes";
+import GameResultMessage from "./GameResultMessage";
 
 interface Props {
   roomId: string;
 }
-
-interface Move {
-  x: number;
-  y: number;
-  player: "x" | "o";
-}
-
-type Cell = "x" | "o" | null;
 
 const ACTIONS = {
   CONNECT: "connect",
@@ -69,10 +62,6 @@ export default function TicTacToeGame({ roomId }: Props) {
   const [board, setBoard] = useState<Cell[][]>(
     Array(3).fill(Array(3).fill(null))
   );
-
-  const cellIsX = (cell: string | null) => {
-    return cell === "x";
-  };
 
   const handleConnect = () => {
     console.log("Connected to the socket server");
@@ -219,50 +208,28 @@ export default function TicTacToeGame({ roomId }: Props) {
             <Header />
 
             <div className="p-4">
-              <h1 className="text-3xl font-bold text-center">
-                Tic Tac Toe Online
-              </h1>
-              <p className="text-center text-lg">
-                You play as "<span className="capitalize">{symbol}</span>"
-              </p>
-              <p className="text-center text-sm">{status}</p>
+              {symbol && (
+                <PlayerBoxes symbol={symbol} currentTurn={currentTurn} />
+              )}
 
-              <div className="grid grid-cols-3 gap-2 place-items-center aspect-square bg-gray-700 rounded-md shadow-md p-2">
-                {board.map((row, x) =>
-                  row.map((cell, y) => (
-                    <button
-                      key={`${x}-${y}`}
-                      onClick={() => handleMove(x, y)}
-                      disabled={!!cell || !isMyTurn}
-                      className={mergeClassNames(
-                        "bg-gray-600",
-                        "text-2xl  font-bold",
-                        "w-full max-w-16 h-full max-h-16 flex items-center justify-center",
-                        "rounded-md",
-                        "transition-colors duration-200",
-                        "hover:bg-gray-500 hover:disabled:bg-gray-600",
-                        "disabled:opacity-90",
-                        cellIsX(cell) ? "text-red-600" : "text-blue-600"
-                      )}
-                    >
-                      {cell}
-                    </button>
-                  ))
-                )}
+              <div className="flex justify-center items-center w-full relative">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <GameResultMessage
+                    winner={winner}
+                    draw={draw}
+                    playerSymbol={symbol!}
+                  />
+                </div>
+
+                <CanvasTicTacToeBoard
+                  board={board}
+                  isMyTurn={isMyTurn}
+                  onMove={handleMove}
+                />
               </div>
 
-              <div className="bg-gray-50 rounded-md shadow-md p-4">
-                <h3 className="font-semibold text-lg mb-2 text-gray-900">
-                  History:
-                </h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-gray-900">
-                  {history.map((move, index) => (
-                    <li key={index}>
-                      Player {move.player.toUpperCase()} played at [{move.x + 1}
-                      , {move.y + 1}]
-                    </li>
-                  ))}
-                </ul>
+              <div className="mt-6">
+                <PlayHistory history={history} />
               </div>
             </div>
           </div>

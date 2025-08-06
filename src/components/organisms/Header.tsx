@@ -20,7 +20,7 @@ export default function Header() {
   if (isLoadingUser) return null;
 
   return (
-    <Container className="flex flex-col pt-8 pb-4 text-[var(--color-foreground)] text-sm bg-violet-900">
+    <Container className="flex flex-col py-4 text-[var(--color-foreground)] text-sm bg-violet-900">
       <div className="flex flex-row justify-between font-semibold">
         {name && user && (
           <div className="flex justify-between w-full">
