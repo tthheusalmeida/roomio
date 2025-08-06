@@ -17,6 +17,7 @@ import CanvasTicTacToeBoard, { Cell } from "../organisms/CanvasTicTacToeBoard";
 import PlayHistory, { Move } from "../molecules/PlayHistory";
 import PlayerBoxes from "../organisms/PlayerBoxes";
 import GameResultMessage from "./GameResultMessage";
+import Confetti from "react-confetti";
 
 interface Props {
   roomId: string;
@@ -46,6 +47,7 @@ export default function TicTacToeGame({ roomId }: Props) {
   const { user } = useUser();
   const route = useRouter();
 
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [socket, setSocket] = useState<Socket | null>(null);
   const [connected, setConnected] = useState(false);
   const [online, setOnline] = useState<OnlineProps>({ amount: 0, players: [] });
@@ -142,6 +144,19 @@ export default function TicTacToeGame({ roomId }: Props) {
   }, [user, roomId]);
 
   useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     if (!isMyTurn && online.amount < MIN_PLAYERS) {
       setStatus("Opponent reconnecting...");
     }
@@ -232,6 +247,17 @@ export default function TicTacToeGame({ roomId }: Props) {
                 <PlayHistory history={history} />
               </div>
             </div>
+
+            {winner === symbol && (
+              <Confetti
+                width={dimensions.width}
+                height={dimensions.height}
+                recycle={false}
+                numberOfPieces={250}
+                gravity={0.3}
+                className="pointer-events-none fixed top-0 left-0 z-50"
+              />
+            )}
           </div>
         )}
       </div>
