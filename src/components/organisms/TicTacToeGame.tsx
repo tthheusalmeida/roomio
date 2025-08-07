@@ -18,6 +18,7 @@ import PlayHistory, { Move } from "../molecules/PlayHistory";
 import PlayerBoxes from "../organisms/PlayerBoxes";
 import GameResultMessage from "./GameResultMessage";
 import Confetti from "react-confetti";
+import PlayRematch from "../molecules/PlayRematch";
 
 interface Props {
   roomId: string;
@@ -33,6 +34,7 @@ const ACTIONS = {
   GAME_STATE: "game_state",
   MOVE: "move",
   START: "start",
+  REMATCH: "rematch",
   KICK_OFF: "kick-off",
 };
 
@@ -77,10 +79,25 @@ export default function TicTacToeGame({ roomId }: Props) {
   };
 
   const handleKickOff = (data: any) => {
-    const { symbol, currentTurn: ct, isMyTurn } = data;
-    setSymbol(symbol);
-    setCurrentTurn(ct);
-    setStatus(isMyTurn ? "Your turn" : "Waiting for opponent...");
+    const {
+      board: serverBoard,
+      history: serverHistory,
+      symbol: serverSymbol,
+      currentTurn: serverCurrentTurn,
+      isMyTurn: serverIsMyTurn,
+      winner: serverWinner,
+      draw: serverDraw,
+    } = data;
+    setBoard(serverBoard);
+    setHistory(serverHistory);
+    setCurrentTurn(serverCurrentTurn);
+    setWinner(serverWinner);
+    setDraw(serverDraw);
+    setStatus(serverIsMyTurn ? "Your turn" : "Waiting for opponent...");
+
+    if (serverSymbol) {
+      setSymbol(serverSymbol);
+    }
   };
 
   const handleStart = () => {
@@ -114,6 +131,12 @@ export default function TicTacToeGame({ roomId }: Props) {
     setConnected(false);
   };
 
+  const handleRematch = (rematch: boolean) => {
+    if (!rematch) {
+      route.push("/");
+    }
+  };
+
   useEffect(() => {
     if (symbol && currentTurn) {
       setIsMyTurn(currentTurn === symbol);
@@ -136,6 +159,7 @@ export default function TicTacToeGame({ roomId }: Props) {
     socket.on(ACTIONS.START, handleStart);
     socket.on(ACTIONS.GAME_STATE, handleGameState);
     socket.on(ACTIONS.ERROR, handleError);
+    socket.on(ACTIONS.REMATCH, handleRematch);
     socket.on(ACTIONS.DISCONNECT, handleDisconnect);
 
     return () => {
@@ -183,6 +207,12 @@ export default function TicTacToeGame({ roomId }: Props) {
   const handleMove = (x: number, y: number) => {
     if (!isMyTurn || !socket) return;
     socket.emit(ACTIONS.MOVE, { x, y });
+  };
+
+  const handleOnClickRematch = (rematch: boolean) => {
+    if (socket) {
+      socket.emit(ACTIONS.REMATCH, rematch);
+    }
   };
 
   return (
@@ -244,7 +274,11 @@ export default function TicTacToeGame({ roomId }: Props) {
               </div>
 
               <div className="mt-6">
-                <PlayHistory history={history} />
+                {!!winner || draw ? (
+                  <PlayRematch onFinish={handleOnClickRematch} />
+                ) : (
+                  <PlayHistory history={history} />
+                )}
               </div>
             </div>
 

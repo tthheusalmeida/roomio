@@ -1,31 +1,40 @@
-import { mergeClassNames } from "@/utils/classNames";
 import { useEffect, useState } from "react";
+import { mergeClassNames } from "@/utils/classNames";
 
 interface CountdownTimerProps {
   initialMinutes: number;
   onFinish?: () => void;
+  onProgress?: (progress: number) => void;
   className?: string;
+  shouldStop?: boolean;
 }
 
 export default function CountdownTimer({
   initialMinutes,
   onFinish,
+  onProgress,
   className,
+  shouldStop,
 }: CountdownTimerProps) {
-  const [seconds, setSeconds] = useState(initialMinutes * 60);
+  const totalSeconds = initialMinutes * 60;
+  const [seconds, setSeconds] = useState(totalSeconds);
 
   useEffect(() => {
-    if (seconds <= 0) {
-      onFinish?.();
+    if (shouldStop || seconds <= 0) {
+      if (seconds <= 0) onFinish?.();
       return;
     }
 
     const timer = setInterval(() => {
-      setSeconds((prev) => prev - 1);
+      setSeconds((prev) => {
+        const next = prev - 1;
+        onProgress?.(((totalSeconds - next) / totalSeconds) * 100);
+        return next;
+      });
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [seconds, onFinish]);
+  }, [seconds, totalSeconds, onFinish, onProgress, shouldStop]);
 
   return (
     <div className={mergeClassNames(className)}>

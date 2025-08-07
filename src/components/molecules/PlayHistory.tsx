@@ -10,7 +10,7 @@ interface PlayHistoryProps {
 
 export default function PlayHistory({ history }: PlayHistoryProps) {
   return (
-    <div className="bg-gray-800 rounded-md p-4 ">
+    <div className="bg-gray-800 rounded-md p-4">
       <h3 className="font-semibold text-xs mb-2 text-gray-200 z-20 relative">
         History:
       </h3>
