@@ -146,7 +146,7 @@ export default function TicTacToeGame({ roomId }: Props) {
   useEffect(() => {
     if (!user?.uid) return;
 
-    const socket = io("http://localhost:8080/tic-tac-toe", {
+    const socket = io(`${process.env.NEXT_PUBLIC_GATEWAY_ADDRESS}/tic-tac-toe`, {
       query: { room: roomId, userId: user.uid },
       auth: { token: user.accessToken },
     });
