@@ -3,6 +3,7 @@
 import { RankingRow } from "../molecules/RankingRow";
 
 export interface PlayerRank {
+  name: string;
   user_id: string;
   total_score: number;
 }
@@ -34,6 +35,7 @@ export default function Ranking({ PlayerRankList }: RankingProps) {
               key={item.user_id}
               position={index + 1}
               userId={item.user_id}
+              name={item.name}
               score={item.total_score}
             />
           ))}
