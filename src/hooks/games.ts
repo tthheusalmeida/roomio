@@ -1,7 +1,6 @@
+import useSWR from "swr";
 import { getGames } from "@/services/games";
 import { useUser } from "@/contexts/UserContext";
-
-import useSWR from "swr";
 
 export function useGames() {
   const { user } = useUser();

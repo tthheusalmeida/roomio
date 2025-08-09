@@ -1,15 +1,18 @@
 "use client";
 
-import Container from "@/components/atoms/Container";
-import { useUser } from "@/contexts/UserContext";
 import { useEffect, useState } from "react";
 import { SiSecurityscorecard } from "react-icons/si";
 import Avatar from "../atoms/Avatar";
+import Button from "../atoms/Button";
+import Container from "@/components/atoms/Container";
+import { useUser } from "@/contexts/UserContext";
+import { useTotalScores } from "@/hooks/scores";
 
 export default function Header() {
   const { user, isLoadingUser } = useUser();
 
   const [name, setName] = useState<string>("");
+  const { data: score, isLoading } = useTotalScores();
 
   useEffect(() => {
     if (user) {
@@ -35,7 +38,9 @@ export default function Header() {
             </div>
 
             <span className="flex items-center gap-2">
-              <span className="text-lg text-violet-100">{1024}</span>
+              <span className="text-lg text-violet-100">
+                {isLoading ? <Button isLoading={isLoading} /> : score.total}
+              </span>
               <SiSecurityscorecard size={24} className="inline" />
             </span>
           </div>
