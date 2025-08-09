@@ -1,4 +1,5 @@
 import HomeTemplate from "@/templates/HomeTemplate";
+import ProtectedPage from "@/templates/ProtectedPage";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <HomeTemplate />;
+  return (
+    <ProtectedPage>
+      <HomeTemplate />
+    </ProtectedPage>
+  );
 }

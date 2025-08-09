@@ -1,4 +1,5 @@
 import RankingTemplate from "@/templates/RankingTemplate";
+import ProtectedPage from "@/templates/ProtectedPage";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function Ranking() {
-  return <RankingTemplate />;
+  return (
+    <ProtectedPage>
+      <RankingTemplate />
+    </ProtectedPage>
+  );
 }

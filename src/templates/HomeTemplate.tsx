@@ -5,11 +5,22 @@ import GameCard from "@/components/organisms/GameCard";
 import { useGames } from "@/hooks/games";
 import { Game } from "@/services/games";
 import { mergeClassNames } from "@/utils/classNames";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function HomeTemplate() {
-  const { data, isValidating, isLoading } = useGames();
+  const router = useRouter();
+  const { data, isLoading } = useGames();
   const [games, setGames] = useState<Game[]>([]);
+
+  useEffect(() => {
+    const redirect = sessionStorage.getItem("redirectAfterLogin");
+
+    if (redirect) {
+      sessionStorage.removeItem("redirectAfterLogin");
+      router.push(redirect);
+    }
+  }, [router]);
 
   useEffect(() => {
     if (data) {

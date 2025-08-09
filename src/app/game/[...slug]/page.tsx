@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import GameClient from "@/components/organisms/GameClient";
+import ProtectedPage from "@/templates/ProtectedPage";
 
 export const metadata: Metadata = {
   other: {
@@ -9,8 +10,8 @@ export const metadata: Metadata = {
 
 export default function Game() {
   return (
-    <>
+    <ProtectedPage>
       <GameClient />
-    </>
+    </ProtectedPage>
   );
 }

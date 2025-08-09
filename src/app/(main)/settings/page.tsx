@@ -1,3 +1,4 @@
+import ProtectedPage from "@/templates/ProtectedPage";
 import SettingsTemplate from "@/templates/SettingsTemplate";
 import { Metadata } from "next";
 
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function Settings() {
-  return <SettingsTemplate />;
+  return (
+    <ProtectedPage>
+      <SettingsTemplate />
+    </ProtectedPage>
+  );
 }
