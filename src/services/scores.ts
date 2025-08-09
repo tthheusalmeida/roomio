@@ -26,6 +26,24 @@ export async function getUserTotalScores(token: string, userId: string) {
 
   throwErrorIfFailedToFetch(response.ok);
 
-  const data = response.json();
+  const { total } = await response.json();
+  return total;
+}
+
+export async function getScoresRanking(token: string) {
+  const endPoint = "/room-io/scores/ranking";
+  const url = process.env.NEXT_PUBLIC_GATEWAY_ADDRESS + endPoint;
+
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
+
+  throwErrorIfFailedToFetch(response.ok);
+
+  const { data } = await response.json();
   return data;
 }

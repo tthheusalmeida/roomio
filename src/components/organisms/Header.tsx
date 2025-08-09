@@ -12,7 +12,7 @@ export default function Header() {
   const { user, isLoadingUser } = useUser();
 
   const [name, setName] = useState<string>("");
-  const { data: score, isLoading } = useTotalScores();
+  const { data, isLoading } = useTotalScores();
 
   useEffect(() => {
     if (user) {
@@ -39,7 +39,7 @@ export default function Header() {
 
             <span className="flex items-center gap-2">
               <span className="text-lg text-violet-100">
-                {isLoading ? <Button isLoading={isLoading} /> : score.total}
+                {isLoading ? <Button isLoading={isLoading} /> : data}
               </span>
               <SiSecurityscorecard size={24} className="inline" />
             </span>
