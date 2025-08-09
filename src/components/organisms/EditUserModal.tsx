@@ -11,6 +11,8 @@ interface ListNameModalProps {
   onClose: () => void;
 }
 
+const MAX_USER_CHARACTERS = 25;
+
 export default function EditUserModal({ isOpen, onClose }: ListNameModalProps) {
   const { user, setUser } = useUser();
 
@@ -32,12 +34,18 @@ export default function EditUserModal({ isOpen, onClose }: ListNameModalProps) {
 
   const isNameEqual = user.name === name;
   const isNameEmpty = name.length <= 0;
+  const isNameOverMaxCharacters = name.length > MAX_USER_CHARACTERS;
 
   useEffect(() => {}, [isOpen]);
 
   return (
     <Modal isOpen={isOpen} title="Edit user">
-      <InputLabel text="Name" className="text-violet-900">
+      <InputLabel
+        text="Name"
+        className="text-violet-900"
+        currentInput={name}
+        maxInput={MAX_USER_CHARACTERS}
+      >
         <InputText
           placeholder={"Type your name"}
           value={name}
@@ -52,7 +60,7 @@ export default function EditUserModal({ isOpen, onClose }: ListNameModalProps) {
         <Button
           type="button"
           variant="primary"
-          disabled={isNameEqual || isNameEmpty}
+          disabled={isNameEqual || isNameEmpty || isNameOverMaxCharacters}
           onClick={handleOnConfirm}
         >
           Save
