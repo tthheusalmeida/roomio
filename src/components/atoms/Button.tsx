@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { mergeClassNames } from "@/utils/classNames";
 import { VscLoading } from "react-icons/vsc";
 
@@ -38,8 +39,17 @@ export default function Button({
   isFull = true,
   isLoading = false,
   size = "normal",
+  onClick,
   ...rest
 }: ButtonProps) {
+  const [isPulsing, setIsPulsing] = useState(false);
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setIsPulsing(true);
+    setTimeout(() => setIsPulsing(false), 200);
+    onClick?.(e);
+  };
+
   const componentClasses = [
     "flex relative inline-flex justify-center items-center",
     sizeVariants[size],
@@ -50,6 +60,7 @@ export default function Button({
     isFull ? "w-full" : "",
     shadow ? "shadow-md" : "",
     variant ? buttonVariants[variant] : "",
+    isPulsing ? "pulse-once" : "",
     className ?? "",
   ].join(" ");
 
@@ -65,7 +76,11 @@ export default function Button({
   ].join(" ");
 
   return (
-    <button className={mergeClassNames(componentClasses)} {...rest}>
+    <button
+      className={mergeClassNames(componentClasses)}
+      onClick={handleClick}
+      {...rest}
+    >
       <span className={childrenClasses}>{children}</span>
       {isLoading && <VscLoading size={24} className={loadingClasses} />}
     </button>

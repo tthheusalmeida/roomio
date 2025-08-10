@@ -22,3 +22,17 @@ body {
   color: var(--color-foreground);
   font-family: var(--font-poppi-sans), sans-serif;
 }
+
+@keyframes pulse-once {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.pulse-once {
+  animation: pulse-once 0.2s ease-in-out;
+}

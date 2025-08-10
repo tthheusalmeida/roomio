@@ -67,6 +67,8 @@ export default function TicTacToeGame({ roomId }: Props) {
     Array(3).fill(Array(3).fill(null))
   );
 
+  const isGameFinish = !!winner || draw;
+
   const handleConnect = () => {
     console.log("Connected to the socket server");
     setConnected(true);
@@ -146,10 +148,13 @@ export default function TicTacToeGame({ roomId }: Props) {
   useEffect(() => {
     if (!user?.uid) return;
 
-    const socket = io(`${process.env.NEXT_PUBLIC_GATEWAY_ADDRESS}/tic-tac-toe`, {
-      query: { room: roomId, userId: user.uid },
-      auth: { token: user.accessToken },
-    });
+    const socket = io(
+      `${process.env.NEXT_PUBLIC_GATEWAY_ADDRESS}/tic-tac-toe`,
+      {
+        query: { room: roomId, userId: user.uid },
+        auth: { token: user.accessToken },
+      }
+    );
 
     setSocket(socket);
 
@@ -274,7 +279,7 @@ export default function TicTacToeGame({ roomId }: Props) {
               </div>
 
               <div className="mt-6">
-                {!!winner || draw ? (
+                {isGameFinish ? (
                   <PlayRematch onFinish={handleOnClickRematch} />
                 ) : (
                   <PlayHistory history={history} />

@@ -12,7 +12,6 @@ interface CountdownWithProgressProps {
   color?: string;
   showLabel?: boolean;
   mode?: "both" | "bar" | "timer";
-  shouldStop?: boolean;
 }
 
 export default function CountdownWithProgress({
@@ -23,7 +22,6 @@ export default function CountdownWithProgress({
   color = "bg-green-600",
   showLabel = true,
   mode = "both",
-  shouldStop,
 }: CountdownWithProgressProps) {
   const [progress, setProgress] = useState(0);
 
@@ -44,7 +42,6 @@ export default function CountdownWithProgress({
           onFinish={onFinish}
           onProgress={setProgress}
           className="text-center"
-          shouldStop={shouldStop}
         />
       )}
     </div>

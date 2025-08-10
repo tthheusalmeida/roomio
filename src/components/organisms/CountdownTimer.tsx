@@ -6,7 +6,6 @@ interface CountdownTimerProps {
   onFinish?: () => void;
   onProgress?: (progress: number) => void;
   className?: string;
-  shouldStop?: boolean;
 }
 
 export default function CountdownTimer({
@@ -14,27 +13,28 @@ export default function CountdownTimer({
   onFinish,
   onProgress,
   className,
-  shouldStop,
 }: CountdownTimerProps) {
   const totalSeconds = initialMinutes * 60;
   const [seconds, setSeconds] = useState(totalSeconds);
 
   useEffect(() => {
-    if (shouldStop || seconds <= 0) {
-      if (seconds <= 0) onFinish?.();
+    if (seconds <= 0) {
+      onFinish?.();
       return;
     }
 
     const timer = setInterval(() => {
-      setSeconds((prev) => {
-        const next = prev - 1;
-        onProgress?.(((totalSeconds - next) / totalSeconds) * 100);
-        return next;
-      });
+      setSeconds((prev) => prev - 1);
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [seconds, totalSeconds, onFinish, onProgress, shouldStop]);
+  }, [seconds, onFinish]);
+
+  useEffect(() => {
+    if (onProgress) {
+      onProgress(((totalSeconds - seconds) / totalSeconds) * 100);
+    }
+  }, [seconds, totalSeconds, onProgress]);
 
   return (
     <div className={mergeClassNames(className)}>

@@ -1,3 +1,4 @@
+import { mergeClassNames } from "@/utils/classNames";
 import Button from "../atoms/Button";
 import CountdownWithProgress from "../organisms/CountdownWithProgress";
 import { useEffect, useState } from "react";
@@ -7,17 +8,21 @@ interface TitleProps {
 }
 
 export default function PlayRematch({ onFinish }: TitleProps) {
-  const [shouldStop, setShouldStop] = useState(false);
+  const [showPrimary, setShowPrimary] = useState(true);
+  const [showSecondary, setShowSecondary] = useState(true);
 
   const handleCountdownTime = () => {
-    if (!shouldStop) {
-      onFinish?.(false);
-    }
+    onFinish?.(false);
   };
 
-  const handleClick = (value: boolean) => {
-    setShouldStop(true);
+  const handleClick = (value: boolean, hidePrimary: boolean) => {
     onFinish?.(value);
+
+    if (hidePrimary) {
+      setShowPrimary(false);
+    } else {
+      setShowSecondary(false);
+    }
   };
 
   return (
@@ -29,16 +34,30 @@ export default function PlayRematch({ onFinish }: TitleProps) {
         color="bg-violet-500"
         showLabel
         onFinish={handleCountdownTime}
-        shouldStop={shouldStop}
       />
 
       <div className="w-full text-center text-2xl mb-2">Rematch?</div>
 
       <div className="w-full flex gap-4">
-        <Button variant="primary" onClick={() => handleClick(false)}>
+        <Button
+          variant="primary"
+          className={mergeClassNames(
+            "transition-all duration-500",
+            !showPrimary ? "hidden" : "visible"
+          )}
+          onClick={() => handleClick(false, false)}
+        >
           No
         </Button>
-        <Button variant="secondary" onClick={() => handleClick(true)}>
+
+        <Button
+          variant="secondary"
+          className={mergeClassNames(
+            "transition-all duration-500",
+            !showSecondary ? "hidden" : "visible"
+          )}
+          onClick={() => handleClick(true, true)}
+        >
           Yes
         </Button>
       </div>
