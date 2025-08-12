@@ -3,6 +3,7 @@
 import { useScoresRanking } from "@/hooks/scores";
 import Subtitle from "@/components/atoms/Subtitle";
 import Ranking, { PlayerRank } from "@/components/organisms/Ranking";
+import LoadingLabel from "@/components/atoms/LoadingLabel";
 
 export default function RankingTemplate() {
   const { data: overallRanking, isLoading } = useScoresRanking();
@@ -12,7 +13,7 @@ export default function RankingTemplate() {
       <Subtitle>Overall Ranking</Subtitle>
 
       {isLoading ? (
-        <span className="animate-pulse">Loading...</span>
+        <LoadingLabel label="Loading..." />
       ) : (
         <Ranking PlayerRankList={overallRanking} />
       )}

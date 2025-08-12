@@ -1,5 +1,6 @@
 "use client";
 
+import LoadingLabel from "@/components/atoms/LoadingLabel";
 import Subtitle from "@/components/atoms/Subtitle";
 import GameCard from "@/components/organisms/GameCard";
 import { useGames } from "@/hooks/games";
@@ -41,7 +42,7 @@ export default function HomeTemplate() {
       >
         {isLoading ? (
           <div className="w-full h-8/12">
-            <span className="animate-pulse">Loading...</span>
+            <LoadingLabel label="Loading..." />
           </div>
         ) : (
           games?.map(({ name, slug, online }, index) => (

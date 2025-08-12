@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 import { SiSecurityscorecard } from "react-icons/si";
 import Avatar from "../atoms/Avatar";
-import Button from "../atoms/Button";
 import Container from "@/components/atoms/Container";
 import { useUser } from "@/contexts/UserContext";
 import { useTotalScores } from "@/hooks/scores";
+import LoadingIcon from "../atoms/LoadingIcon";
 
 export default function Header() {
   const { user, isLoadingUser } = useUser();
@@ -39,9 +39,8 @@ export default function Header() {
 
             <span className="flex items-center gap-2">
               <span className="text-lg text-violet-100">
-                {isLoading ? <Button isLoading={isLoading} /> : data}
+                {isLoading ? <LoadingIcon /> : <span>{data} points</span>}
               </span>
-              <SiSecurityscorecard size={24} className="inline" />
             </span>
           </div>
         )}

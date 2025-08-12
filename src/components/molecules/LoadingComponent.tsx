@@ -1,9 +1,9 @@
-import Loading from "../atoms/Loading";
+import LoadingLogo from "../atoms/LoadingLogo";
 
 export default function LoadingComponent() {
   return (
     <div className="flex flex-col w-full h-full items-center justify-center">
-      <Loading />
+      <LoadingLogo />
     </div>
   );
 }
