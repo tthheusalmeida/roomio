@@ -9,7 +9,7 @@ export default function ProtectedPage({
 }: {
   children: React.ReactNode;
 }) {
-  const { user, isLoadingUser } = useUser();
+  const { user, isLoadingUser, setRedirect } = useUser();
   const router = useRouter();
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function ProtectedPage({
       const gameRouteMatch = pathname.match(/^\/game\/[^/]+\/[^/]+$/);
 
       if (gameRouteMatch) {
-        localStorage.setItem("redirectAfterLogin", pathname);
+        setRedirect(pathname);
       }
 
       router.replace("/login");

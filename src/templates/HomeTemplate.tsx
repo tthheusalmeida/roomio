@@ -3,6 +3,7 @@
 import LoadingLabel from "@/components/atoms/LoadingLabel";
 import Subtitle from "@/components/atoms/Subtitle";
 import GameCard from "@/components/organisms/GameCard";
+import { useUser } from "@/contexts/UserContext";
 import { useGames } from "@/hooks/games";
 import { Game } from "@/services/games";
 import { mergeClassNames } from "@/utils/classNames";
@@ -13,13 +14,13 @@ export default function HomeTemplate() {
   const router = useRouter();
   const { data, isLoading } = useGames();
   const [games, setGames] = useState<Game[]>([]);
+  const { redirect, setRedirect } = useUser();
 
   useEffect(() => {
-    const redirect = localStorage.getItem("redirectAfterLogin");
-
     if (redirect) {
-      localStorage.removeItem("redirectAfterLogin");
-      router.push(redirect);
+      const currentRedirect = redirect;
+      setRedirect(null);
+      router.push(currentRedirect);
     }
   }, [router]);
 

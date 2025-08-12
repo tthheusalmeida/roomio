@@ -43,7 +43,7 @@ Main flow:
 1. Login via Firebase.
 2. Access the **Home** page with a list of available games.
 3. Select a game → create or join a room (`/game/<game_slug>/<uuid>`).
-4. If the user is not logged in, the room data is saved in **LocalStorage** until authentication.
+4. If the user is not logged in, the room data is saved in **User Context** until authentication.
 5. Matches run in real time via **Socket.IO**.
 
 ---
@@ -96,7 +96,7 @@ Roomio is split into three main layers: **Client (frontend)**, **Server (backend
   - Firebase authentication (client SDK).
   - UI for Home, Lobby (`/game/<game_slug>/<uuid>`), Game and Ranking pages.
   - Connects to the backend via Socket.IO for real-time gameplay.
-  - Stores pending room info in LocalStorage if the user is not authenticated yet.
+  - Stores pending room info in User Context if the user is not authenticated yet.
   - Uses SWR for fetching non-real-time endpoints (ranking, game list).
 - **Server (Node.js + Express + Socket.IO on Render)**
   - Validates Firebase ID tokens (via Firebase Admin) on REST and Socket connections.

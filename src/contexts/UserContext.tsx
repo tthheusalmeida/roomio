@@ -8,6 +8,8 @@ import { createUser, getUser, UserDocument } from "@/services/user";
 interface UserContextType {
   user: User | null;
   setUser: (user: User | null) => void;
+  redirect: string | null;
+  setRedirect: (redirect: string | null) => void;
   signOut: () => void;
   isLoadingUser: boolean;
 }
@@ -24,6 +26,8 @@ interface User {
 const UserContext = createContext<UserContextType>({
   user: null,
   setUser: () => {},
+  redirect: null,
+  setRedirect: () => {},
   signOut: () => {},
   isLoadingUser: true,
 });
@@ -78,6 +82,7 @@ async function mergeUser(userAuth: FirebaseUser) {
 export function UserProvider({ children }: { children: React.ReactNode }) {
   const auth = getFirebaseAuth();
   const [user, setUser] = useState<User | null>(null);
+  const [redirect, setRedirect] = useState<string | null>(null);
   const [isLoadingUser, setIsLoadingUser] = useState(true);
 
   useEffect(() => {
@@ -103,7 +108,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
 
   const signOut = () => {
     setUser(null);
-    setIsLoadingUser(true); // <- Isso garante que telas aguardem novo estado
+    setIsLoadingUser(true);
     auth.signOut().finally(() => setIsLoadingUser(false));
   };
 
@@ -112,6 +117,8 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
       value={{
         user,
         setUser,
+        redirect,
+        setRedirect,
         signOut,
         isLoadingUser,
       }}
