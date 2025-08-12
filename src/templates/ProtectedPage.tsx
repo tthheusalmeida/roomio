@@ -19,7 +19,7 @@ export default function ProtectedPage({
       const gameRouteMatch = pathname.match(/^\/game\/[^/]+\/[^/]+$/);
 
       if (gameRouteMatch) {
-        sessionStorage.setItem("redirectAfterLogin", pathname);
+        localStorage.setItem("redirectAfterLogin", pathname);
       }
 
       router.replace("/login");

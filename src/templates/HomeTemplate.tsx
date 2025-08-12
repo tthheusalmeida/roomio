@@ -15,10 +15,10 @@ export default function HomeTemplate() {
   const [games, setGames] = useState<Game[]>([]);
 
   useEffect(() => {
-    const redirect = sessionStorage.getItem("redirectAfterLogin");
+    const redirect = localStorage.getItem("redirectAfterLogin");
 
     if (redirect) {
-      sessionStorage.removeItem("redirectAfterLogin");
+      localStorage.removeItem("redirectAfterLogin");
       router.push(redirect);
     }
   }, [router]);
