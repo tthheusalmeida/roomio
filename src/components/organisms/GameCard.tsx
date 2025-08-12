@@ -41,10 +41,10 @@ export default function GameCard({
         </h5>
       </div>
       <div className="flex flex-col gap-2 items-start p-4 pt-0">
-        <span className="flex gap-2 items-center text-sm">
+        {/* <span className="flex gap-2 items-center text-sm">
           <div className="w-3 h-3 border-white border-2 bg-green-500 rounded-full" />
           {online} playing
-        </span>
+        </span> */}
 
         <Button variant="secondary" onClick={() => onClickPlay(slug)}>
           Play
