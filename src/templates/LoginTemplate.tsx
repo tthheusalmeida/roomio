@@ -52,9 +52,7 @@ export default function LoginTemplate() {
     <LoginWrapperTemplate
       content={
         <>
-          <Title className="mb-2 text-center text-violet-100 font-pixelify">
-            Room.IO
-          </Title>
+          <Title className="mb-2 text-center text-violet-100">Room.IO</Title>
           <span className="text-center text-sm text-violet-400 font-semibold pb-16">
             Explore our multiplayer online games platform
           </span>
