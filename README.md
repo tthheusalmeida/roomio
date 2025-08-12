@@ -19,6 +19,7 @@
 
 - [About](#about)
 - [Technologies](#technologies)
+- [Architecture](#architecture)
 - [In Action](#in-action)
 - [How to Contribute](#how-to-contribute)
 
@@ -77,6 +78,40 @@ Main flow:
 Note: This repository contains only the frontend code. The backend is stored in a separate, secure repository.
 
 ---
+
+<a id="architecture"></a>
+
+## 🏗️ Architecture
+
+Roomio is split into three main layers: **Client (frontend)**, **Server (backend + real-time)** and **Database**. The server is the single source of truth for game rules and state — the frontend is responsible for UI and optimistic updates. Below is a summary of the responsibilities and the data flow.
+
+<h3 align="center">
+    <img alt="Roomio" width="100%" title="#logo" src="public/doc/architecture.png">
+    <br>
+</h3>
+
+### Components & responsibilities
+
+- **Client (Next.js + React)**
+  - Firebase authentication (client SDK).
+  - UI for Home, Lobby (`/game/<game_slug>/<uuid>`), Game and Ranking pages.
+  - Connects to the backend via Socket.IO for real-time gameplay.
+  - Stores pending room info in LocalStorage if the user is not authenticated yet.
+  - Uses SWR for fetching non-real-time endpoints (ranking, game list).
+- **Server (Node.js + Express + Socket.IO on Render)**
+  - Validates Firebase ID tokens (via Firebase Admin) on REST and Socket connections.
+  - Holds the authoritative game rules and game state transitions (prevents cheating).
+  - Emits and listens to real-time events (move, rematch, connect and others).
+  - Persists completed games and score updates to PostgreSQL (NeonDB).
+  - Exposes REST endpoints for ranking, game list, and room metadata.
+  - Rate limiting and basic abuse protection (express-rate-limit).
+- **Databases**
+  - **Firebase** — user authentication and lightweight user profile data.
+  - **PostgreSQL (NeonDB)** — tables for `games`, `scores` and other platform data that require relational storage and queries.
+- **Deployment**
+  - Frontend deployed to **Vercel**.
+  - Backend deployed to **Render**.
+  - Database hosted on **NeonDB**.
 
 <a id="in-action"></a>
 
