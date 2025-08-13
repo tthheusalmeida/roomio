@@ -4,7 +4,7 @@ import ProtectedPage from "@/templates/ProtectedPage";
 
 export const metadata: Metadata = {
   other: {
-    "theme-color": "#2f0d68",
+    "theme-color": "#4d179a",
   },
 };
 

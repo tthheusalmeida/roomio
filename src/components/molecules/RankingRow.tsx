@@ -28,7 +28,7 @@ export function RankingRow({ position, name, userId, score }: RankingRowProps) {
 
   return (
     <tr className="border-t bg-violet-200 hover:bg-violet-50 transition-colors">
-      <td className="px-2 py-2 flex items-center gap-2 text-violet-900">
+      <td className="px-2 py-2 flex items-center justify-end gap-2 text-violet-900">
         {medalColor && (
           <FaMedal
             className={mergeClassNames("w-4 h-4 shrink-0", medalColor)}
