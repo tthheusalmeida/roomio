@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`InputText component applies extra classes passed via className 1`] = `
+<DocumentFragment>
+  <input
+    class="w-full h-10 rounded border border-slate-300 px-4 py-2 text-base text-gray-600 caret-slate-600 placeholder-gray-400 outline-none transition-all duration-300 focus:ring-1 focus:ring-slate-400 focus:border-slate-400 extra-class"
+    placeholder="Custom class"
+  />
+</DocumentFragment>
+`;
+
+exports[`InputText component renders an input element 1`] = `
+<DocumentFragment>
+  <input
+    class="w-full h-10 rounded border border-slate-300 px-4 py-2 text-base text-gray-600 caret-slate-600 placeholder-gray-400 outline-none transition-all duration-300 focus:ring-1 focus:ring-slate-400 focus:border-slate-400"
+    placeholder="Enter name"
+  />
+</DocumentFragment>
+`;
