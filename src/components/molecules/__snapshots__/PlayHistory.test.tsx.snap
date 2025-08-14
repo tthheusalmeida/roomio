@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`PlayHistory component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="bg-gray-800 rounded-md p-4"
+  >
+    <h3
+      class="font-semibold text-xs mb-2 text-gray-200 z-20 relative"
+    >
+      History:
+    </h3>
+    <div
+      class="h-36 max-h-36 overflow-y-auto relative"
+    >
+      <ul
+        class="flex flex-col gap-1 text-sm text-gray-400 relative z-0"
+      >
+        <li
+          class="list-none font-semibold text-white"
+        >
+          X played at (3, 3)
+        </li>
+        <li
+          class="list-none "
+        >
+          O played at (2, 2)
+        </li>
+        <li
+          class="list-none "
+        >
+          X played at (1, 1)
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;
