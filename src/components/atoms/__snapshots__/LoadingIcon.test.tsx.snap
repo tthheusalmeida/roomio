@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`LoadingIcon component renders the loading icon with correct class 1`] = `
+<DocumentFragment>
+  <span
+    class="animate-spin"
+    data-testid="loading-icon"
+    size="24"
+  />
+</DocumentFragment>
+`;
