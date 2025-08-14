@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Loading component renders the LoadingLabel with correct text and classes 1`] = `
+<DocumentFragment>
+  <span
+    class="animate-pulse font-bold text-6xl"
+  >
+    Room.io
+  </span>
+</DocumentFragment>
+`;
