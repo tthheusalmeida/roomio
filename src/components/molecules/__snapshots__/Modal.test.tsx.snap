@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Modal component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="fixed inset-0 z-50 flex items-end justify-center transition-opacity duration-200 bg-[var(--color-background)]/50 opacity-100 pointer-events-auto"
+  >
+    <div
+      class="relative w-full max-h-full bg-[var(--color-foreground)] shadow-xl overflow-y-auto transition-all duration-600 ease-in-out transform safe-padding-bottom translate-y-0 opacity-100 rounded-t-xl"
+    >
+      <div
+        class="mx-4 my-5 flex justify-between items-center"
+      >
+        <h2
+          class="text-sm font-semibold text-gray-700"
+        >
+          Snapshot Modal
+        </h2>
+        <svg
+          class="cursor-pointer"
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"
+          />
+        </svg>
+      </div>
+      <div
+        class="flex flex-col flex-1 m-4"
+      >
+        <div>
+          Content
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
