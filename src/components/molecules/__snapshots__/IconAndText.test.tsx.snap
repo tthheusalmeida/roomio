@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`IconAndText component matches snapshot with icon and text 1`] = `
+<DocumentFragment>
+  <div
+    class="flex justify-center gap-4 items-center"
+  >
+    <span
+      data-testid="icon"
+      style="font-size: 24px;"
+    >
+      Icon 24
+    </span>
+    <span
+      class="text-sm font-normal"
+    >
+      Hello
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`IconAndText component renders text correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="flex justify-center gap-4 items-center"
+  >
+    <span
+      class="text-sm font-normal"
+    >
+      Hello
+    </span>
+  </div>
+</DocumentFragment>
+`;
