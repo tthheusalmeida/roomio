@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Subtitle component applies extra classes passed via className 1`] = `
+<DocumentFragment>
+  <h2
+    class="font-bold text-2xl my-8 extra-class"
+  >
+    My Subtitle
+  </h2>
+</DocumentFragment>
+`;
+
+exports[`Subtitle component renders the children text correctly 1`] = `
+<DocumentFragment>
+  <h2
+    class="font-bold text-2xl my-8"
+  >
+    My Subtitle
+  </h2>
+</DocumentFragment>
+`;
