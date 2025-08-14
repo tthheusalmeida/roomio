@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`SectionTitle component renders the title text correctly 1`] = `
+<DocumentFragment>
+  <h2
+    class="text-lg"
+  >
+    My Section
+  </h2>
+</DocumentFragment>
+`;
