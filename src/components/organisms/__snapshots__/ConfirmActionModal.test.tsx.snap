@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ConfirmActionModal component matches snapshot 1`] = `
+<div>
+  <div
+    data-testid="modal"
+  >
+    <div
+      class="h-screen -my-4 py-4 flex flex-col"
+    >
+      <div
+        class="flex flex-col justify-center gap-4 mb-4"
+      >
+        <span
+          class="text-gray-700 text-sm transition-opacity duration-600 min-h-14 opacity-100"
+        >
+          Snapshot message
+        </span>
+      </div>
+      <div
+        class="flex gap-4"
+      >
+        <button>
+          Cancelar
+        </button>
+        <button>
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
