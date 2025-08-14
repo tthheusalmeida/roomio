@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Container component applies extra classes passed via className 1`] = `
+<DocumentFragment>
+  <div
+    class="w-full mx-auto px-4 extra-class"
+  >
+    <span>
+      Content
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Container component renders children correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="w-full mx-auto px-4"
+  >
+    <span>
+      Content inside
+    </span>
+  </div>
+</DocumentFragment>
+`;
