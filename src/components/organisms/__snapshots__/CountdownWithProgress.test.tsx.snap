@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CountdownWithProgress matches snapshot 1`] = `
+<div>
+  <div
+    class="w-full space-y-1 undefined"
+  >
+    <div
+      class="w-full bg-gray-200 rounded h-2 overflow-hidden"
+    >
+      <div
+        class="transition-all duration-300 bg-green-600 h-2"
+        style="width: 0%;"
+      />
+      <p
+        class="text-sm text-center text-gray-500 mt-1"
+      >
+        0
+        %
+      </p>
+    </div>
+    <div
+      class="text-center"
+    >
+      <p>
+        01:00
+      </p>
+    </div>
+  </div>
+</div>
+`;
