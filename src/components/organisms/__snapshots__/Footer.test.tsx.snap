@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Footer component should match snapshot on home page 1`] = `
+<div>
+  <div
+    class="fixed left-1/2 -translate-x-1/2 bottom-4 flex gap-8 p-4 rounded-full text-white text-sm bg-violet-900 z-40"
+  >
+    <button
+      class="relative px-4 py-2 gap-4 text-sm font-medium cursor-pointer disabled:cursor-not-allowed text-[var(--color-foreground)] hover:enabled:bg-violet-800 disabled:bg-violet-400 disabled:text-violet-50 w-12 h-12 flex items-center justify-center rounded-full transition-all ease-in duration-300 bg-transparent"
+    >
+      <span
+        class="flex items-center gap-4 visible"
+      >
+        <svg
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 256 256"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M114.31,101.9a6,6,0,0,1,3.79-7.59l12-4A6,6,0,0,1,138,96v40a6,6,0,0,1-12,0V104.32l-4.1,1.37A6,6,0,0,1,114.31,101.9ZM246,208a6,6,0,0,1-6,6H16a6,6,0,0,1,0-12H26V104A14,14,0,0,1,40,90H82V56A14,14,0,0,1,96,42h64a14,14,0,0,1,14,14v74h42a14,14,0,0,1,14,14v58h10A6,6,0,0,1,246,208Zm-72-66v60h44V144a2,2,0,0,0-2-2ZM94,202h68V56a2,2,0,0,0-2-2H96a2,2,0,0,0-2,2Zm-56,0H82V102H40a2,2,0,0,0-2,2Z"
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      class="relative px-4 py-2 gap-4 text-sm font-medium cursor-pointer disabled:cursor-not-allowed text-[var(--color-foreground)] hover:enabled:bg-violet-800 disabled:bg-violet-400 disabled:text-violet-50 w-12 h-12 flex items-center justify-center rounded-full transition-all ease-in duration-300 bg-violet-500"
+    >
+      <span
+        class="flex items-center gap-4 visible"
+      >
+        <svg
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M261.56 101.28a8 8 0 0 0-11.06 0L66.4 277.15a8 8 0 0 0-2.47 5.79L63.9 448a32 32 0 0 0 32 32H192a16 16 0 0 0 16-16V328a8 8 0 0 1 8-8h80a8 8 0 0 1 8 8v136a16 16 0 0 0 16 16h96.06a32 32 0 0 0 32-32V282.94a8 8 0 0 0-2.47-5.79z"
+          />
+          <path
+            d="m490.91 244.15-74.8-71.56V64a16 16 0 0 0-16-16h-48a16 16 0 0 0-16 16v32l-57.92-55.38C272.77 35.14 264.71 32 256 32c-8.68 0-16.72 3.14-22.14 8.63l-212.7 203.5c-6.22 6-7 15.87-1.34 22.37A16 16 0 0 0 43 267.56L250.5 69.28a8 8 0 0 1 11.06 0l207.52 198.28a16 16 0 0 0 22.59-.44c6.14-6.36 5.63-16.86-.76-22.97z"
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      class="relative px-4 py-2 gap-4 text-sm font-medium cursor-pointer disabled:cursor-not-allowed text-[var(--color-foreground)] hover:enabled:bg-violet-800 disabled:bg-violet-400 disabled:text-violet-50 w-12 h-12 flex items-center justify-center rounded-full transition-all ease-in duration-300 bg-transparent"
+    >
+      <span
+        class="flex items-center gap-4 visible"
+      >
+        <svg
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M262.29 192.31a64 64 0 1 0 57.4 57.4 64.13 64.13 0 0 0-57.4-57.4zM416.39 256a154.34 154.34 0 0 1-1.53 20.79l45.21 35.46a10.81 10.81 0 0 1 2.45 13.75l-42.77 74a10.81 10.81 0 0 1-13.14 4.59l-44.9-18.08a16.11 16.11 0 0 0-15.17 1.75A164.48 164.48 0 0 1 325 400.8a15.94 15.94 0 0 0-8.82 12.14l-6.73 47.89a11.08 11.08 0 0 1-10.68 9.17h-85.54a11.11 11.11 0 0 1-10.69-8.87l-6.72-47.82a16.07 16.07 0 0 0-9-12.22 155.3 155.3 0 0 1-21.46-12.57 16 16 0 0 0-15.11-1.71l-44.89 18.07a10.81 10.81 0 0 1-13.14-4.58l-42.77-74a10.8 10.8 0 0 1 2.45-13.75l38.21-30a16.05 16.05 0 0 0 6-14.08c-.36-4.17-.58-8.33-.58-12.5s.21-8.27.58-12.35a16 16 0 0 0-6.07-13.94l-38.19-30A10.81 10.81 0 0 1 49.48 186l42.77-74a10.81 10.81 0 0 1 13.14-4.59l44.9 18.08a16.11 16.11 0 0 0 15.17-1.75A164.48 164.48 0 0 1 187 111.2a15.94 15.94 0 0 0 8.82-12.14l6.73-47.89A11.08 11.08 0 0 1 213.23 42h85.54a11.11 11.11 0 0 1 10.69 8.87l6.72 47.82a16.07 16.07 0 0 0 9 12.22 155.3 155.3 0 0 1 21.46 12.57 16 16 0 0 0 15.11 1.71l44.89-18.07a10.81 10.81 0 0 1 13.14 4.58l42.77 74a10.8 10.8 0 0 1-2.45 13.75l-38.21 30a16.05 16.05 0 0 0-6.05 14.08c.33 4.14.55 8.3.55 12.47z"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="32"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Footer component should match snapshot on ranking page 1`] = `
+<div>
+  <div
+    class="fixed left-1/2 -translate-x-1/2 bottom-4 flex gap-8 p-4 rounded-full text-white text-sm bg-violet-900 z-40"
+  >
+    <button
+      class="relative px-4 py-2 gap-4 text-sm font-medium cursor-pointer disabled:cursor-not-allowed text-[var(--color-foreground)] hover:enabled:bg-violet-800 disabled:bg-violet-400 disabled:text-violet-50 w-12 h-12 flex items-center justify-center rounded-full transition-all ease-in duration-300 bg-violet-500"
+    >
+      <span
+        class="flex items-center gap-4 visible"
+      >
+        <svg
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 256 256"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M240,200h-8V144a16,16,0,0,0-16-16H176V56a16,16,0,0,0-16-16H96A16,16,0,0,0,80,56V88H40a16,16,0,0,0-16,16v96H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM80,200H40V104H80Zm60-64a8,8,0,0,1-16,0V107.1l-1.47.49a8,8,0,0,1-5.06-15.18l12-4A8,8,0,0,1,140,96Zm76,64H176V144h40Z"
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      class="relative px-4 py-2 gap-4 text-sm font-medium cursor-pointer disabled:cursor-not-allowed text-[var(--color-foreground)] hover:enabled:bg-violet-800 disabled:bg-violet-400 disabled:text-violet-50 w-12 h-12 flex items-center justify-center rounded-full transition-all ease-in duration-300 bg-transparent"
+    >
+      <span
+        class="flex items-center gap-4 visible"
+      >
+        <svg
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M80 212v236a16 16 0 0 0 16 16h96V328a24 24 0 0 1 24-24h80a24 24 0 0 1 24 24v136h96a16 16 0 0 0 16-16V212"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="32"
+          />
+          <path
+            d="M480 256 266.89 52c-5-5.28-16.69-5.34-21.78 0L32 256m368-77V64h-48v69"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="32"
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      class="relative px-4 py-2 gap-4 text-sm font-medium cursor-pointer disabled:cursor-not-allowed text-[var(--color-foreground)] hover:enabled:bg-violet-800 disabled:bg-violet-400 disabled:text-violet-50 w-12 h-12 flex items-center justify-center rounded-full transition-all ease-in duration-300 bg-transparent"
+    >
+      <span
+        class="flex items-center gap-4 visible"
+      >
+        <svg
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M262.29 192.31a64 64 0 1 0 57.4 57.4 64.13 64.13 0 0 0-57.4-57.4zM416.39 256a154.34 154.34 0 0 1-1.53 20.79l45.21 35.46a10.81 10.81 0 0 1 2.45 13.75l-42.77 74a10.81 10.81 0 0 1-13.14 4.59l-44.9-18.08a16.11 16.11 0 0 0-15.17 1.75A164.48 164.48 0 0 1 325 400.8a15.94 15.94 0 0 0-8.82 12.14l-6.73 47.89a11.08 11.08 0 0 1-10.68 9.17h-85.54a11.11 11.11 0 0 1-10.69-8.87l-6.72-47.82a16.07 16.07 0 0 0-9-12.22 155.3 155.3 0 0 1-21.46-12.57 16 16 0 0 0-15.11-1.71l-44.89 18.07a10.81 10.81 0 0 1-13.14-4.58l-42.77-74a10.8 10.8 0 0 1 2.45-13.75l38.21-30a16.05 16.05 0 0 0 6-14.08c-.36-4.17-.58-8.33-.58-12.5s.21-8.27.58-12.35a16 16 0 0 0-6.07-13.94l-38.19-30A10.81 10.81 0 0 1 49.48 186l42.77-74a10.81 10.81 0 0 1 13.14-4.59l44.9 18.08a16.11 16.11 0 0 0 15.17-1.75A164.48 164.48 0 0 1 187 111.2a15.94 15.94 0 0 0 8.82-12.14l6.73-47.89A11.08 11.08 0 0 1 213.23 42h85.54a11.11 11.11 0 0 1 10.69 8.87l6.72 47.82a16.07 16.07 0 0 0 9 12.22 155.3 155.3 0 0 1 21.46 12.57 16 16 0 0 0 15.11 1.71l44.89-18.07a10.81 10.81 0 0 1 13.14 4.58l42.77 74a10.8 10.8 0 0 1-2.45 13.75l-38.21 30a16.05 16.05 0 0 0-6.05 14.08c.33 4.14.55 8.3.55 12.47z"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="32"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Footer component should match snapshot on settings page 1`] = `
+<div>
+  <div
+    class="fixed left-1/2 -translate-x-1/2 bottom-4 flex gap-8 p-4 rounded-full text-white text-sm bg-violet-900 z-40"
+  >
+    <button
+      class="relative px-4 py-2 gap-4 text-sm font-medium cursor-pointer disabled:cursor-not-allowed text-[var(--color-foreground)] hover:enabled:bg-violet-800 disabled:bg-violet-400 disabled:text-violet-50 w-12 h-12 flex items-center justify-center rounded-full transition-all ease-in duration-300 bg-transparent"
+    >
+      <span
+        class="flex items-center gap-4 visible"
+      >
+        <svg
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 256 256"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M114.31,101.9a6,6,0,0,1,3.79-7.59l12-4A6,6,0,0,1,138,96v40a6,6,0,0,1-12,0V104.32l-4.1,1.37A6,6,0,0,1,114.31,101.9ZM246,208a6,6,0,0,1-6,6H16a6,6,0,0,1,0-12H26V104A14,14,0,0,1,40,90H82V56A14,14,0,0,1,96,42h64a14,14,0,0,1,14,14v74h42a14,14,0,0,1,14,14v58h10A6,6,0,0,1,246,208Zm-72-66v60h44V144a2,2,0,0,0-2-2ZM94,202h68V56a2,2,0,0,0-2-2H96a2,2,0,0,0-2,2Zm-56,0H82V102H40a2,2,0,0,0-2,2Z"
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      class="relative px-4 py-2 gap-4 text-sm font-medium cursor-pointer disabled:cursor-not-allowed text-[var(--color-foreground)] hover:enabled:bg-violet-800 disabled:bg-violet-400 disabled:text-violet-50 w-12 h-12 flex items-center justify-center rounded-full transition-all ease-in duration-300 bg-transparent"
+    >
+      <span
+        class="flex items-center gap-4 visible"
+      >
+        <svg
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M80 212v236a16 16 0 0 0 16 16h96V328a24 24 0 0 1 24-24h80a24 24 0 0 1 24 24v136h96a16 16 0 0 0 16-16V212"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="32"
+          />
+          <path
+            d="M480 256 266.89 52c-5-5.28-16.69-5.34-21.78 0L32 256m368-77V64h-48v69"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="32"
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      class="relative px-4 py-2 gap-4 text-sm font-medium cursor-pointer disabled:cursor-not-allowed text-[var(--color-foreground)] hover:enabled:bg-violet-800 disabled:bg-violet-400 disabled:text-violet-50 w-12 h-12 flex items-center justify-center rounded-full transition-all ease-in duration-300 bg-violet-500"
+    >
+      <span
+        class="flex items-center gap-4 visible"
+      >
+        <svg
+          fill="currentColor"
+          height="24"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="256"
+            cy="256"
+            r="48"
+          />
+          <path
+            d="m470.39 300-.47-.38-31.56-24.75a16.11 16.11 0 0 1-6.1-13.33v-11.56a16 16 0 0 1 6.11-13.22L469.92 212l.47-.38a26.68 26.68 0 0 0 5.9-34.06l-42.71-73.9a1.59 1.59 0 0 1-.13-.22A26.86 26.86 0 0 0 401 92.14l-.35.13-37.1 14.93a15.94 15.94 0 0 1-14.47-1.29q-4.92-3.1-10-5.86a15.94 15.94 0 0 1-8.19-11.82l-5.59-39.59-.12-.72A27.22 27.22 0 0 0 298.76 26h-85.52a26.92 26.92 0 0 0-26.45 22.39l-.09.56-5.57 39.67a16 16 0 0 1-8.13 11.82 175.21 175.21 0 0 0-10 5.82 15.92 15.92 0 0 1-14.43 1.27l-37.13-15-.35-.14a26.87 26.87 0 0 0-32.48 11.34l-.13.22-42.77 73.95a26.71 26.71 0 0 0 5.9 34.1l.47.38 31.56 24.75a16.11 16.11 0 0 1 6.1 13.33v11.56a16 16 0 0 1-6.11 13.22L42.08 300l-.47.38a26.68 26.68 0 0 0-5.9 34.06l42.71 73.9a1.59 1.59 0 0 1 .13.22 26.86 26.86 0 0 0 32.45 11.3l.35-.13 37.07-14.93a15.94 15.94 0 0 1 14.47 1.29q4.92 3.11 10 5.86a15.94 15.94 0 0 1 8.19 11.82l5.56 39.59.12.72A27.22 27.22 0 0 0 213.24 486h85.52a26.92 26.92 0 0 0 26.45-22.39l.09-.56 5.57-39.67a16 16 0 0 1 8.18-11.82c3.42-1.84 6.76-3.79 10-5.82a15.92 15.92 0 0 1 14.43-1.27l37.13 14.95.35.14a26.85 26.85 0 0 0 32.48-11.34 2.53 2.53 0 0 1 .13-.22l42.71-73.89a26.7 26.7 0 0 0-5.89-34.11zm-134.48-40.24a80 80 0 1 1-83.66-83.67 80.21 80.21 0 0 1 83.66 83.67z"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
