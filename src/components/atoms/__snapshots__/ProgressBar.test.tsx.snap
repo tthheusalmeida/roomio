@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ProgressBar component applies custom height and color 1`] = `
+<DocumentFragment>
+  <div
+    class="w-full bg-gray-200 rounded h-4 overflow-hidden"
+  >
+    <div
+      class="transition-all duration-300 bg-red-500 h-4"
+      style="width: 75%;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ProgressBar component renders the progress bar with correct width 1`] = `
+<DocumentFragment>
+  <div
+    class="w-full bg-gray-200 rounded h-2 overflow-hidden"
+  >
+    <div
+      class="transition-all duration-300 bg-blue-500 h-2"
+      style="width: 50%;"
+    />
+  </div>
+</DocumentFragment>
+`;
