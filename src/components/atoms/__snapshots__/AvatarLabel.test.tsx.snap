@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`AvatarLabel component applies extra classes passed via className 1`] = `
+<DocumentFragment>
+  <p
+    class="text-violet-300 extra-class"
+  >
+    <label
+      class="font-semibold text-violet-100"
+    >
+      Name: 
+    </label>
+    <span
+      class="font-light text-violet-300"
+    >
+      Matheus
+    </span>
+  </p>
+</DocumentFragment>
+`;
+
+exports[`AvatarLabel component does not render label when showLabel is false 1`] = `
+<DocumentFragment>
+  <p
+    class="text-violet-300"
+  >
+    <span
+      class="font-light text-violet-300"
+    >
+      Matheus
+    </span>
+  </p>
+</DocumentFragment>
+`;
+
+exports[`AvatarLabel component renders with label and data by default 1`] = `
+<DocumentFragment>
+  <p
+    class="text-violet-300"
+  >
+    <label
+      class="font-semibold text-violet-100"
+    >
+      Name: 
+    </label>
+    <span
+      class="font-light text-violet-300"
+    >
+      Matheus
+    </span>
+  </p>
+</DocumentFragment>
+`;
