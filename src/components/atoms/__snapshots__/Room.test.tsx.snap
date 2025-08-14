@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Room component applies extra classes passed via className 1`] = `
+<DocumentFragment>
+  <h4
+    class="w-full h-11 flex items-center justify-center font-medium text-base bg-violet-900 text-violet-100 rounded-lg extra-class"
+  >
+    10:00
+  </h4>
+</DocumentFragment>
+`;
+
+exports[`Room component renders the label text correctly 1`] = `
+<DocumentFragment>
+  <h4
+    class="w-full h-11 flex items-center justify-center font-medium text-base bg-violet-900 text-violet-100 rounded-lg"
+  >
+    10:00
+  </h4>
+</DocumentFragment>
+`;
