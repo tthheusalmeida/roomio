@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`GameCard component should match snapshot 1`] = `
+<div>
+  <div
+    class="h-full flex flex-col justify-between border rounded-lg shadow-sm bg-violet-900 border-violet-500"
+  >
+    <div
+      class="flex flex-col justify-between"
+    >
+      <img
+        alt="Snapshot Game game preview"
+        class="rounded-t-lg bg-[var(--color-foreground)] block"
+        src="/snapshot.jpg"
+      />
+      <h5
+        class="p-4 text-lg font-semibold text-violet-900 dark:text-[var(--color-foreground)]"
+      >
+        Snapshot Game
+      </h5>
+    </div>
+    <div
+      class="flex flex-col gap-2 items-start p-4 pt-0"
+    >
+      <button
+        class="relative inline-flex justify-center items-center px-4 py-2 gap-4 text-sm font-medium transition-all duration-200 cursor-pointer disabled:cursor-not-allowed rounded-sm w-full bg-violet-100 text-violet-800 hover:enabled:bg-violet-200 disabled:bg-white disabled:text-violet-100"
+      >
+        <span
+          class="flex items-center gap-4 visible"
+        >
+          Play
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
