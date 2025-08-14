@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Button component renders with children text 1`] = `
+<DocumentFragment>
+  <button
+    class="relative inline-flex justify-center items-center px-4 py-2 gap-4 text-sm font-medium transition-all duration-200 cursor-pointer disabled:cursor-not-allowed rounded-sm w-full"
+  >
+    <span
+      class="flex items-center gap-4 visible"
+    >
+      Click me
+    </span>
+  </button>
+</DocumentFragment>
+`;
