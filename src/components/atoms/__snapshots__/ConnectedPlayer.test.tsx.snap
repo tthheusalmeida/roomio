@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ConnectedPlayer component applies extra classes passed via className 1`] = `
+<DocumentFragment>
+  <div
+    class="flex items-center gap-2 extra-class"
+  >
+    <div
+      class="w-2 h-2 rounded-full border bg-green-500"
+    />
+    <span
+      class="font-medium text-xs text-violet-100"
+    >
+      Matheus
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ConnectedPlayer component renders the player name and indicator 1`] = `
+<DocumentFragment>
+  <div
+    class="flex items-center gap-2"
+  >
+    <div
+      class="w-2 h-2 rounded-full border bg-green-500"
+    />
+    <span
+      class="font-medium text-xs text-violet-100"
+    >
+      Matheus
+    </span>
+  </div>
+</DocumentFragment>
+`;
