@@ -1,7 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import ConnectedPlayers from "./ConnectedPlayers";
-// import ConnectedPlayer from "../atoms/ConnectedPlayer";
-// import LoadingLabel from "../atoms/LoadingLabel";
 
 jest.mock("../atoms/ConnectedPlayer", () => ({
   __esModule: true,
