@@ -17,6 +17,30 @@ describe("Modal component", () => {
     expect(content).toBeInTheDocument();
   });
 
+  it("applies h-full class when expanded is true", () => {
+    render(
+      <Modal isOpen={true} expanded={true}>
+        <div>Content</div>
+      </Modal>
+    );
+
+    const containerDiv =
+      screen.getByText("Content").parentElement!.parentElement!;
+    expect(containerDiv).toHaveClass("h-full");
+  });
+
+  it("applies rounded-t-xl class when expanded is false or undefined", () => {
+    render(
+      <Modal isOpen={true}>
+        <div>Content</div>
+      </Modal>
+    );
+
+    const containerDiv =
+      screen.getByText("Content").parentElement!.parentElement!;
+    expect(containerDiv).toHaveClass("rounded-t-xl");
+  });
+
   it("adds overflow-hidden to body when open", () => {
     const { rerender } = render(<Modal isOpen={true}>Content</Modal>);
     expect(document.body).toHaveClass("overflow-hidden");
