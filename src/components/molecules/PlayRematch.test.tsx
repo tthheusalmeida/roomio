@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import PlayRematch from "./PlayRematch";
 
 // Mock do CountdownWithProgress
@@ -18,6 +18,11 @@ describe("PlayRematch component", () => {
     expect(screen.getByText("No").closest("button")).toBeInTheDocument();
   });
 
+  it("matches snapshot", () => {
+    const { container } = render(<PlayRematch onFinish={() => {}} />);
+    expect(container).toMatchSnapshot();
+  });
+
   it("calls onFinish with correct values clicking on NO button should hides YES button", async () => {
     const handleFinish = jest.fn();
     render(<PlayRematch onFinish={handleFinish} />);
@@ -33,18 +38,6 @@ describe("PlayRematch component", () => {
 
     expect(noBtnUpdated).not.toHaveClass("hidden");
     expect(yesBtnUpdated).toHaveClass("hidden");
-
-    // // Clica no botão Yes
-    // fireEvent.click(screen.getByText("Yes").closest("button")!);
-    // expect(handleFinish).toHaveBeenCalledWith(true);
-
-    // await waitFor(() => {
-    //   const yesBtnUpdated = screen.getByText("Yes").closest("button")!;
-    //   const noBtnUpdated = screen.getByText("No").closest("button")!;
-    //   // Apenas Yes permanece visível
-    //   expect(yesBtnUpdated).not.toHaveClass("hidden");
-    //   expect(noBtnUpdated).toHaveClass("hidden");
-    // });
   });
 
   it("calls onFinish with correct values clicking on YES button should hides NO button", async () => {

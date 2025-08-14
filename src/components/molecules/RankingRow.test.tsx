@@ -22,6 +22,15 @@ describe("RankingRow component", () => {
     expect(screen.getByText("50")).toBeInTheDocument();
   });
 
+  it("matches snapshot for a normal row", () => {
+    const { container } = render(
+      tableWrapper(
+        <RankingRow position={4} name="Alice" userId="user123" score={50} />
+      )
+    );
+    expect(container).toMatchSnapshot();
+  });
+
   it("shows a medal for top 3 positions", () => {
     const { container: first } = render(
       tableWrapper(
@@ -71,5 +80,23 @@ describe("RankingRow component", () => {
     );
 
     expect(screen.getByText(shortId)).toBeInTheDocument();
+  });
+
+  it("matches snapshot for top 3 medal row", () => {
+    const { container } = render(
+      tableWrapper(
+        <RankingRow position={1} name="Bob" userId="u1" score={100} />
+      )
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("matches snapshot for row with truncated userId", () => {
+    const { container } = render(
+      tableWrapper(
+        <RankingRow position={5} name="" userId="abcdefghijklmno" score={30} />
+      )
+    );
+    expect(container).toMatchSnapshot();
   });
 });
