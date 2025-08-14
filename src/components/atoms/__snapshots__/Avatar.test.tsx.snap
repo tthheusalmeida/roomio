@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Avatar component applies extra classes passed via className 1`] = `
+<DocumentFragment>
+  <img
+    alt="Matheus avatar"
+    class="rounded-full relative self-start extra-class"
+    height="28"
+    src="/avatar.png"
+    width="28"
+  />
+</DocumentFragment>
+`;
+
+exports[`Avatar component renders in medium size 1`] = `
+<DocumentFragment>
+  <img
+    alt="Matheus avatar"
+    class="rounded-full relative self-start"
+    height="52"
+    src="/avatar.png"
+    width="52"
+  />
+</DocumentFragment>
+`;
+
+exports[`Avatar component renders with default size (small) and automatic alt 1`] = `
+<DocumentFragment>
+  <img
+    alt="Matheus avatar"
+    class="rounded-full relative self-start"
+    height="28"
+    src="/avatar.png"
+    width="28"
+  />
+</DocumentFragment>
+`;
+
+exports[`Avatar component uses custom alt when provided 1`] = `
+<DocumentFragment>
+  <img
+    alt="Profile picture"
+    class="rounded-full relative self-start"
+    height="28"
+    src="/avatar.png"
+    width="28"
+  />
+</DocumentFragment>
+`;
