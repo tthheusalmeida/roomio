@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`SettingsButton component renders the icon and label 1`] = `
+<DocumentFragment>
+  <button>
+    <div
+      class="flex gap-4 items-center min-w-[50dvw]"
+    >
+      <span
+        data-testid="icon"
+        size="24"
+      />
+      Next
+    </div>
+  </button>
+</DocumentFragment>
+`;
