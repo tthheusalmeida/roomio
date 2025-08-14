@@ -11,6 +11,7 @@ const config: Config = {
   injectGlobals: true,
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  collectCoverageFrom: ["src/**/*.{ts,tsx}"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
