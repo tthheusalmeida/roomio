@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`LoadingLabel component applies extra classes passed via className 1`] = `
+<DocumentFragment>
+  <span
+    class="animate-pulse extra-class"
+  >
+    Loading...
+  </span>
+</DocumentFragment>
+`;
+
+exports[`LoadingLabel component renders the label text with pulse animation 1`] = `
+<DocumentFragment>
+  <span
+    class="animate-pulse"
+  >
+    Loading...
+  </span>
+</DocumentFragment>
+`;
