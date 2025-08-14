@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`SplashScreen component renders the container and LoadingLogo 1`] = `
+<DocumentFragment>
+  <div
+    class="h-dvh w-dvw flex items-center justify-center bg-violet-900"
+  >
+    <div
+      data-testid="loading-logo"
+    />
+  </div>
+</DocumentFragment>
+`;
