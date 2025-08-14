@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ConnectedPlayers component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class=""
+  >
+    <div
+      data-testid="loading-label"
+    >
+      Waiting for players...
+    </div>
+    <div
+      class="mt-2 flex flex-col gap-2 p-4 bg-violet-900 rounded-lg"
+    >
+      <span
+        class="text-sm self-start"
+      >
+        Connected:
+      </span>
+      <div
+        data-testid="connected-player"
+      >
+        Alice
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

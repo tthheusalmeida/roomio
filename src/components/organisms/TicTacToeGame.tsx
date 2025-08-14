@@ -11,7 +11,7 @@ import Header from "./Header";
 import Room from "../atoms/Room";
 import Subtitle from "../atoms/Subtitle";
 import CountupPlayers from "../atoms/CountupPlayers";
-import ConnectedPlayers from "../molecules/ConectedPlayers";
+import ConnectedPlayers from "../molecules/ConnectedPlayers";
 import RoomAndPassword from "./RoomAndPassword";
 import CanvasTicTacToeBoard, { Cell } from "../organisms/CanvasTicTacToeBoard";
 import PlayHistory, { Move } from "../molecules/PlayHistory";
