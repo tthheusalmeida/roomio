@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`InputLabel component applies extra classes passed via className 1`] = `
+<DocumentFragment>
+  <label
+    class="my-4 block extra-class"
+  >
+    <div
+      class="w-full flex justify-between items-baseline"
+    >
+      <span
+        class="block font-semibold my-2"
+      >
+        Name
+      </span>
+      <span
+        class="block font-medium text-xs my-2 transition-all duration-200"
+      >
+        /
+      </span>
+    </div>
+    <input />
+  </label>
+</DocumentFragment>
+`;
+
+exports[`InputLabel component renders character counter correctly 1`] = `
+<DocumentFragment>
+  <label
+    class="my-4 block"
+  >
+    <div
+      class="w-full flex justify-between items-baseline"
+    >
+      <span
+        class="block font-semibold my-2"
+      >
+        Bio
+      </span>
+      <span
+        class="block font-medium text-xs my-2 transition-all duration-200"
+      >
+        5/10
+      </span>
+    </div>
+    <input />
+  </label>
+</DocumentFragment>
+`;
+
+exports[`InputLabel component renders text and children correctly 1`] = `
+<DocumentFragment>
+  <label
+    class="my-4 block"
+  >
+    <div
+      class="w-full flex justify-between items-baseline"
+    >
+      <span
+        class="block font-semibold my-2"
+      >
+        Username
+      </span>
+      <span
+        class="block font-medium text-xs my-2 transition-all duration-200"
+      >
+        /
+      </span>
+    </div>
+    <input />
+  </label>
+</DocumentFragment>
+`;
